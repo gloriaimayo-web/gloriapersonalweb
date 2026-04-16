@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:#fbf7f7; --surface:#fffafb; --surface-2:#f7eded; --surface-3:#f2e6e8;
@@ -29,7 +29,7 @@
     .topbar{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:rgba(255,251,252,0.92);border-bottom:1px solid rgba(231,207,212,0.7);}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px;}
     .brand{display:flex;flex-direction:column;gap:3px;}
-    .brand-script{font-family:"Cormorant Garamond",serif;font-size:2.7rem;line-height:0.92;font-weight:600;color:var(--accent);letter-spacing:-0.03em;}
+    .brand-script{font-family:"Great Vibes",cursive;font-size:3rem;line-height:0.92;font-weight:400;color:var(--accent);letter-spacing:0.02em;}
     .brand-sub{font-size:0.73rem;letter-spacing:0.3em;text-transform:uppercase;color:#b26073;}
     .menu{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:flex-end;}
     .menu a{font-size:0.9rem;color:var(--muted);transition:color .2s;}
@@ -168,7 +168,7 @@
     @media(max-width:780px){
       .menu{display:none;}
       .hamburger{display:flex;}
-      .brand-script{font-size:2.1rem;}
+      .brand-script{font-size:2.4rem;}
       .section-card,.projects-wrap,.contact-card{padding:22px;}
       .hero{padding-top:28px;}
       h1{max-width:none;}
@@ -183,44 +183,45 @@
   <div class="container nav">
     <a class="brand" href="#inicio">
       <span class="brand-script">Gloria Mayo</span>
-      <span class="brand-sub lang-es">Ingeniera de Sistemas · Soluciones Digitales</span>
-      <span class="brand-sub lang-en lang-hidden">Systems Engineer · Digital Solutions</span>
+      <span class="brand-sub lang-es lang-hidden">Ingeniera de Sistemas · Soluciones Digitales</span>
+      <span class="brand-sub lang-en">Systems Engineer · Digital Solutions</span>
     </a>
     <nav class="menu">
-      <a href="#inicio" class="lang-es">Inicio</a>
-      <a href="#inicio" class="lang-en lang-hidden">Home</a>
-      <a href="#sobre-mi" class="lang-es">Perfil</a>
-      <a href="#sobre-mi" class="lang-en lang-hidden">Profile</a>
-      <a href="#experiencia" class="lang-es">Experiencia</a>
-      <a href="#experiencia" class="lang-en lang-hidden">Experience</a>
-      <a href="#servicios" class="lang-es">Servicios</a>
-      <a href="#servicios" class="lang-en lang-hidden">Services</a>
-      <a href="#proyectos" class="lang-es">Portafolio</a>
-      <a href="#proyectos" class="lang-en lang-hidden">Portfolio</a>
-      <a href="#contacto" class="lang-es">Contacto</a>
-      <a href="#contacto" class="lang-en lang-hidden">Contact</a>
+      <a href="#inicio" class="lang-es lang-hidden">Inicio</a>
+      <a href="#inicio" class="lang-en">Home</a>
+      <a href="#sobre-mi" class="lang-es lang-hidden">Perfil</a>
+      <a href="#sobre-mi" class="lang-en">Profile</a>
+      <a href="#experiencia" class="lang-es lang-hidden">Experiencia</a>
+      <a href="#experiencia" class="lang-en">Experience</a>
+      <a href="#servicios" class="lang-es lang-hidden">Servicios</a>
+      <a href="#servicios" class="lang-en">Services</a>
+      <a href="#proyectos" class="lang-es lang-hidden">Portafolio</a>
+      <a href="#proyectos" class="lang-en">Portfolio</a>
+      <a href="#contacto" class="lang-es lang-hidden">Contacto</a>
+      <a href="#contacto" class="lang-en">Contact</a>
       <div class="lang">
-        <span class="active" id="btn-es" onclick="setLang('es')">ES</span>
-        <span id="btn-en" onclick="setLang('en')">EN</span>
+        <span id="btn-es" onclick="setLang('es')">ES</span>
+        <span class="active" id="btn-en" onclick="setLang('en')">EN</span>
       </div>
     </nav>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span class="h-line"></span><span class="h-line"></span><span class="h-line"></span>
     </button>
   </div>
+  <!-- Mobile lang toggle shown inside hamburger -->
   <div id="mobile-menu">
-    <a href="#inicio" onclick="toggleMenu()" class="lang-es">Inicio</a>
-    <a href="#inicio" onclick="toggleMenu()" class="lang-en lang-hidden">Home</a>
-    <a href="#sobre-mi" onclick="toggleMenu()" class="lang-es">Perfil profesional</a>
-    <a href="#sobre-mi" onclick="toggleMenu()" class="lang-en lang-hidden">Professional profile</a>
-    <a href="#experiencia" onclick="toggleMenu()" class="lang-es">Experiencia</a>
-    <a href="#experiencia" onclick="toggleMenu()" class="lang-en lang-hidden">Experience</a>
-    <a href="#servicios" onclick="toggleMenu()" class="lang-es">Servicios</a>
-    <a href="#servicios" onclick="toggleMenu()" class="lang-en lang-hidden">Services</a>
-    <a href="#proyectos" onclick="toggleMenu()" class="lang-es">Portafolio</a>
-    <a href="#proyectos" onclick="toggleMenu()" class="lang-en lang-hidden">Portfolio</a>
-    <a href="#contacto" onclick="toggleMenu()" class="lang-es">Contacto</a>
-    <a href="#contacto" onclick="toggleMenu()" class="lang-en lang-hidden">Contact</a>
+    <a href="#inicio" onclick="toggleMenu()" class="lang-es lang-hidden">Inicio</a>
+    <a href="#inicio" onclick="toggleMenu()" class="lang-en">Home</a>
+    <a href="#sobre-mi" onclick="toggleMenu()" class="lang-es lang-hidden">Perfil profesional</a>
+    <a href="#sobre-mi" onclick="toggleMenu()" class="lang-en">Professional profile</a>
+    <a href="#experiencia" onclick="toggleMenu()" class="lang-es lang-hidden">Experiencia</a>
+    <a href="#experiencia" onclick="toggleMenu()" class="lang-en">Experience</a>
+    <a href="#servicios" onclick="toggleMenu()" class="lang-es lang-hidden">Servicios</a>
+    <a href="#servicios" onclick="toggleMenu()" class="lang-en">Services</a>
+    <a href="#proyectos" onclick="toggleMenu()" class="lang-es lang-hidden">Portafolio</a>
+    <a href="#proyectos" onclick="toggleMenu()" class="lang-en">Portfolio</a>
+    <a href="#contacto" onclick="toggleMenu()" class="lang-es lang-hidden">Contacto</a>
+    <a href="#contacto" onclick="toggleMenu()" class="lang-en">Contact</a>
   </div>
 </header>
 
@@ -231,31 +232,31 @@
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">
-        <span class="lang-es">Tecnología · Elegancia · Servicio · Canadá</span>
-        <span class="lang-en lang-hidden">Technology · Elegance · Service · Canada</span>
+        <span class="lang-es lang-hidden">Tecnología · Elegancia · Servicio · Canadá</span>
+        <span class="lang-en">Technology · Elegance · Service · Canada</span>
       </div>
-      <h1 class="lang-es">Presencia digital con criterio y estilo profesional.</h1>
-      <h1 class="lang-en lang-hidden">Digital presence with clarity and professional style.</h1>
-      <p class="lead lang-es">Soy <strong>Ingeniera de Sistemas en Canadá</strong> con 15+ años de experiencia. Ayudo a <strong>salones, barberías y negocios de servicios</strong> a verse mejor, responder más rápido y organizar su operación digital.</p>
-      <p class="lead lang-en lang-hidden">I am a <strong>Systems Engineer in Canada</strong> with 15+ years of experience. I help <strong>salons, barbershops and service businesses</strong> look better, respond faster and organize their digital operations.</p>
+      <h1 class="lang-es lang-hidden">Presencia digital con criterio y estilo profesional.</h1>
+      <h1 class="lang-en">Digital presence with clarity and professional style.</h1>
+      <p class="lead lang-es lang-hidden">Soy <strong>Ingeniera de Sistemas en Canadá</strong> con 15+ años de experiencia. Ayudo a <strong>salones, barberías y negocios de servicios</strong> a verse mejor, responder más rápido y organizar su operación digital.</p>
+      <p class="lead lang-en">I am a <strong>Systems Engineer in Canada</strong> with 15+ years of experience. I help <strong>salons, barbershops and service businesses</strong> look better, respond faster and organize their digital operations.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#proyectos"><span class="lang-es">Ver portafolio</span><span class="lang-en lang-hidden">View portfolio</span></a>
-        <a class="btn btn-secondary" href="#contacto"><span class="lang-es">Contáctame</span><span class="lang-en lang-hidden">Contact me</span></a>
+        <a class="btn btn-primary" href="#proyectos"><span class="lang-es lang-hidden">Ver portafolio</span><span class="lang-en">View portfolio</span></a>
+        <a class="btn btn-secondary" href="#contacto"><span class="lang-es lang-hidden">Contáctame</span><span class="lang-en">Contact me</span></a>
         <a class="btn btn-secondary" href="cv-gloria-mayo.pdf" download>↓ CV</a>
       </div>
     </div>
     <aside class="hero-card">
       <div class="portrait">
         <div>
-          <strong class="lang-es">Foto profesional</strong><strong class="lang-en lang-hidden">Professional photo</strong><br>
-          <span class="lang-es">Retrato limpio, luz suave, presencia cálida y confiable.</span>
-          <span class="lang-en lang-hidden">Clean portrait, soft light, warm and trustworthy presence.</span>
+          <strong class="lang-es lang-hidden">Foto profesional</strong><strong class="lang-en">Professional photo</strong><br>
+          <span class="lang-es lang-hidden">Retrato limpio, luz suave, presencia cálida y confiable.</span>
+          <span class="lang-en">Clean portrait, soft light, warm and trustworthy presence.</span>
         </div>
       </div>
       <div class="mini-note">
         <strong>📍 Vaughan, Ontario, Canada</strong><br>
-        <span class="lang-es">Bilingüe ES/EN · Ingeniera de Sistemas · G&amp;L Services Group</span>
-        <span class="lang-en lang-hidden">Bilingual ES/EN · Systems Engineer · G&amp;L Services Group</span>
+        <span class="lang-es lang-hidden">Bilingüe ES/EN · Ingeniera de Sistemas · G&amp;L Services Group</span>
+        <span class="lang-en">Bilingual ES/EN · Systems Engineer · G&amp;L Services Group</span>
       </div>
     </aside>
   </div>
@@ -264,10 +265,10 @@
 <!-- STATS -->
 <section class="stats">
   <div class="container stats-grid">
-    <article class="stat"><h3>15+</h3><p class="lang-es">años en soporte técnico, calidad de software y gestión digital.</p><p class="lang-en lang-hidden">years in technical support, software quality and digital management.</p></article>
-    <article class="stat"><h3 class="lang-es">Bilingüe</h3><h3 class="lang-en lang-hidden">Bilingual</h3><p class="lang-es">Español nativo · English intermedio. Adaptación multicultural en Canadá.</p><p class="lang-en lang-hidden">Native Spanish · Intermediate English. Multicultural adaptation in Canada.</p></article>
-    <article class="stat"><h3>G&amp;L Group</h3><p class="lang-es">Empresa propia de servicios digitales con identidad y proyección clara.</p><p class="lang-en lang-hidden">Own digital services company with clear identity and projection.</p></article>
-    <article class="stat"><h3>ISO 9001</h3><p class="lang-es">Experiencia en calidad certificada, procesos y estándares institucionales.</p><p class="lang-en lang-hidden">Experience in certified quality, processes and institutional standards.</p></article>
+    <article class="stat"><h3>15+</h3><p class="lang-es lang-hidden">años en soporte técnico, calidad de software y gestión digital.</p><p class="lang-en">years in technical support, software quality and digital management.</p></article>
+    <article class="stat"><h3 class="lang-es lang-hidden">Bilingüe</h3><h3 class="lang-en">Bilingual</h3><p class="lang-es lang-hidden">Español nativo · English intermedio. Adaptación multicultural en Canadá.</p><p class="lang-en">Native Spanish · Intermediate English. Multicultural adaptation in Canada.</p></article>
+    <article class="stat"><h3 style="font-size:1.4rem;">G&amp;L Services Group</h3><p class="lang-es lang-hidden">Empresa propia de servicios digitales con identidad y proyección clara.</p><p class="lang-en">Own digital services company with clear identity and projection.</p></article>
+    <article class="stat"><h3>ISO 9001</h3><p class="lang-es lang-hidden">Experiencia en calidad certificada, procesos y estándares institucionales.</p><p class="lang-en">Experience in certified quality, processes and institutional standards.</p></article>
   </div>
 </section>
 
@@ -276,25 +277,25 @@
   <div class="container section-card">
     <div class="section-head">
       <div>
-        <div class="label lang-es">Sobre mí</div><div class="label lang-en lang-hidden">About me</div>
-        <h2 class="lang-es">Ingeniería, visión estética y ejecución práctica.</h2>
-        <h2 class="lang-en lang-hidden">Engineering, visual sensibility and practical execution.</h2>
+        <div class="label lang-es lang-hidden">Sobre mí</div><div class="label lang-en">About me</div>
+        <h2 class="lang-es lang-hidden">Ingeniería, visión estética y ejecución práctica.</h2>
+        <h2 class="lang-en">Engineering, visual sensibility and practical execution.</h2>
       </div>
-      <p class="subcopy lang-es">Experiencia técnica seria, adaptación multicultural y capacidad real de implementar soluciones que funcionen para negocios locales en Canadá.</p>
-      <p class="subcopy lang-en lang-hidden">Serious technical experience, multicultural adaptation and real capacity to implement solutions for local businesses in Canada.</p>
+      <p class="subcopy lang-es lang-hidden">Experiencia técnica seria, adaptación multicultural y capacidad real de implementar soluciones que funcionen para negocios locales en Canadá.</p>
+      <p class="subcopy lang-en">Serious technical experience, multicultural adaptation and real capacity to implement solutions for local businesses in Canada.</p>
     </div>
     <div class="about-grid">
-      <div class="about-copy lang-es">Tengo más de 15 años de experiencia en <strong>soporte técnico, administración de plataformas, calidad de software y gestión de proyectos digitales</strong>. Lideré la implementación del sistema ISOlución y supervisé el desarrollo del sistema móvil SIVICO en la Gobernación de Antioquia, bajo estándares ISO 9001.<br><br>Hoy vivo en Canadá, donde combino esa base técnica sólida con una visión orientada al mercado local: negocios que necesitan <strong>verse bien, comunicar mejor y operar con más orden</strong>. Mi marca une estructura, estética y trato humano.</div>
-      <div class="about-copy lang-en lang-hidden">I have over 15 years of experience in <strong>technical support, platform administration, software quality and digital project management</strong>. I led the ISOlución system implementation and supervised the SIVICO mobile system at the Government of Antioquia, under ISO 9001 standards.<br><br>Today I live in Canada, combining that solid technical foundation with a local-market perspective: businesses that need to <strong>look better, communicate clearer and operate with more structure</strong>.</div>
+      <div class="about-copy lang-es lang-hidden">Tengo más de 15 años de experiencia en <strong>soporte técnico, administración de plataformas, calidad de software y gestión de proyectos digitales</strong>. Lideré la implementación del sistema ISOlución y supervisé el desarrollo del sistema móvil SIVICO en la Gobernación de Antioquia, bajo estándares ISO 9001.<br><br>Hoy vivo en Canadá, donde combino esa base técnica sólida con una visión orientada al mercado local: negocios que necesitan <strong>verse bien, comunicar mejor y operar con más orden</strong>. Mi marca une estructura, estética y trato humano.</div>
+      <div class="about-copy lang-en">I have over 15 years of experience in <strong>technical support, platform administration, software quality and digital project management</strong>. I led the ISOlución system implementation and supervised the SIVICO mobile system at the Government of Antioquia, under ISO 9001 standards.<br><br>Today I live in Canada, combining that solid technical foundation with a local-market perspective: businesses that need to <strong>look better, communicate clearer and operate with more structure</strong>.</div>
       <div class="feature-list">
-        <div class="feature-item lang-es"><strong>Experiencia técnica real:</strong> sistemas institucionales, soporte, pruebas de calidad y organización digital de alto nivel.</div>
-        <div class="feature-item lang-en lang-hidden"><strong>Real technical experience:</strong> institutional systems, support, quality testing and high-level digital organization.</div>
-        <div class="feature-item lang-es"><strong>Perfil confiable para Canadá:</strong> disciplina operativa, adaptación multicultural y enfoque profesional.</div>
-        <div class="feature-item lang-en lang-hidden"><strong>Trustworthy profile for Canada:</strong> operational discipline, multicultural adaptation and professional approach.</div>
-        <div class="feature-item lang-es"><strong>Ventaja diferencial:</strong> no solo diseño páginas, también entiendo procesos, clientes, operación y seguimiento.</div>
-        <div class="feature-item lang-en lang-hidden"><strong>Key differentiator:</strong> I don't just design pages — I understand processes, clients, operations and follow-up.</div>
-        <div class="feature-item lang-es"><strong>Ideal para negocios locales:</strong> salones, barberías y profesionales que quieren elevar su imagen digital.</div>
-        <div class="feature-item lang-en lang-hidden"><strong>Ideal for local businesses:</strong> salons, barbershops and professionals who want to elevate their digital image.</div>
+        <div class="feature-item lang-es lang-hidden"><strong>Experiencia técnica real:</strong> sistemas institucionales, soporte, pruebas de calidad y organización digital de alto nivel.</div>
+        <div class="feature-item lang-en"><strong>Real technical experience:</strong> institutional systems, support, quality testing and high-level digital organization.</div>
+        <div class="feature-item lang-es lang-hidden"><strong>Perfil confiable para Canadá:</strong> disciplina operativa, adaptación multicultural y enfoque profesional.</div>
+        <div class="feature-item lang-en"><strong>Trustworthy profile for Canada:</strong> operational discipline, multicultural adaptation and professional approach.</div>
+        <div class="feature-item lang-es lang-hidden"><strong>Ventaja diferencial:</strong> no solo diseño páginas, también entiendo procesos, clientes, operación y seguimiento.</div>
+        <div class="feature-item lang-en"><strong>Key differentiator:</strong> I don't just design pages — I understand processes, clients, operations and follow-up.</div>
+        <div class="feature-item lang-es lang-hidden"><strong>Ideal para negocios locales:</strong> salones, barberías y profesionales que quieren elevar su imagen digital.</div>
+        <div class="feature-item lang-en"><strong>Ideal for local businesses:</strong> salons, barbershops and professionals who want to elevate their digital image.</div>
       </div>
     </div>
   </div>
@@ -305,8 +306,8 @@
   <div class="container section-card">
     <div class="section-head">
       <div>
-        <div class="label lang-es">Trayectoria</div><div class="label lang-en lang-hidden">Career path</div>
-        <h2 class="lang-es">Experiencia profesional</h2><h2 class="lang-en lang-hidden">Professional experience</h2>
+        <div class="label lang-es lang-hidden">Trayectoria</div><div class="label lang-en">Career path</div>
+        <h2 class="lang-es lang-hidden">Experiencia profesional</h2><h2 class="lang-en">Professional experience</h2>
       </div>
     </div>
     <div class="exp-grid">
@@ -314,76 +315,76 @@
         <div class="t-item">
           <span class="t-period">2022 – Present</span>
           <div class="t-company">Costco Canada · Vaughan, ON</div>
-          <div class="t-role lang-es">Asistente de Recibo · Operadora de Montacargas</div>
-          <div class="t-role lang-en lang-hidden">Receiver Assistant · Forklift Operator</div>
-          <div class="t-desc lang-es">Gestión de inventario en entorno logístico de alta exigencia. Comunicación efectiva en inglés y trabajo en equipo multicultural.</div>
-          <div class="t-desc lang-en lang-hidden">Inventory management in a high-demand logistics environment. Effective English communication and multicultural teamwork.</div>
+          <div class="t-role lang-es lang-hidden">Asistente de Recibo · Operadora de Montacargas</div>
+          <div class="t-role lang-en">Receiver Assistant · Forklift Operator</div>
+          <div class="t-desc lang-es lang-hidden">Gestión de inventario en entorno logístico de alta exigencia. Comunicación efectiva en inglés y trabajo en equipo multicultural.</div>
+          <div class="t-desc lang-en">Inventory management in a high-demand logistics environment. Effective English communication and multicultural teamwork.</div>
         </div>
         <div class="t-item">
           <span class="t-period">2008 – 2020</span>
-          <div class="t-company lang-es">Gobernación de Antioquia · Colombia</div>
-          <div class="t-company lang-en lang-hidden">Government of Antioquia · Colombia</div>
-          <div class="t-role lang-es">Ingeniera Profesional – Depto. de Sistemas</div>
-          <div class="t-role lang-en lang-hidden">Professional Engineer – Systems Department</div>
-          <div class="t-desc lang-es">Implementación y soporte del sistema ISOlución. Supervisión del desarrollo del sistema móvil SIVICO. Pruebas de calidad ISO 9001. Contratación de software corporativo (Microsoft, Adobe, seguridad de redes).</div>
-          <div class="t-desc lang-en lang-hidden">Implementation of ISOlución platform. Supervision of SIVICO mobile system. ISO 9001 quality testing. Corporate software procurement (Microsoft, Adobe, network security).</div>
+          <div class="t-company lang-es lang-hidden">Gobernación de Antioquia · Colombia</div>
+          <div class="t-company lang-en">Government of Antioquia · Colombia</div>
+          <div class="t-role lang-es lang-hidden">Ingeniera Profesional – Depto. de Sistemas</div>
+          <div class="t-role lang-en">Professional Engineer – Systems Department</div>
+          <div class="t-desc lang-es lang-hidden">Implementación y soporte del sistema ISOlución. Supervisión del desarrollo del sistema móvil SIVICO. Pruebas de calidad ISO 9001. Contratación de software corporativo (Microsoft, Adobe, seguridad de redes).</div>
+          <div class="t-desc lang-en">Implementation of ISOlución platform. Supervision of SIVICO mobile system. ISO 9001 quality testing. Corporate software procurement (Microsoft, Adobe, network security).</div>
         </div>
         <div class="t-item">
           <span class="t-period" style="background:#b05468;">2008</span>
           <div class="t-company">IDEA · Instituto para el Desarrollo de Antioquia</div>
-          <div class="t-role lang-es">Contratista IT – Gestión de Datos</div>
-          <div class="t-role lang-en lang-hidden">IT Contractor – Data Management</div>
-          <div class="t-desc lang-es">Ingreso, validación y gestión de datos en sistema gubernamental de calidad MECI.</div>
-          <div class="t-desc lang-en lang-hidden">Data entry, validation and management in the MECI governmental quality system.</div>
+          <div class="t-role lang-es lang-hidden">Contratista IT – Gestión de Datos</div>
+          <div class="t-role lang-en">IT Contractor – Data Management</div>
+          <div class="t-desc lang-es lang-hidden">Ingreso, validación y gestión de datos en sistema gubernamental de calidad MECI.</div>
+          <div class="t-desc lang-en">Data entry, validation and management in the MECI governmental quality system.</div>
         </div>
         <div class="t-item">
           <span class="t-period" style="background:#c9858f;">1990 – 2007</span>
-          <div class="t-company lang-es">Experiencia anterior · Colombia</div>
-          <div class="t-company lang-en lang-hidden">Earlier experience · Colombia</div>
-          <div class="t-desc lang-es">EPM – Help Desk técnico · Standard Systems – Directora de ventas de software · Asamblea de Antioquia · Cámara de Comercio de Medellín.</div>
-          <div class="t-desc lang-en lang-hidden">EPM – Technical Help Desk · Standard Systems – Software Sales Director · Antioquia Assembly · Medellín Chamber of Commerce.</div>
+          <div class="t-company lang-es lang-hidden">Experiencia anterior · Colombia</div>
+          <div class="t-company lang-en">Earlier experience · Colombia</div>
+          <div class="t-desc lang-es lang-hidden">EPM – Help Desk técnico · Standard Systems – Directora de ventas de software · Asamblea de Antioquia · Cámara de Comercio de Medellín.</div>
+          <div class="t-desc lang-en">EPM – Technical Help Desk · Standard Systems – Software Sales Director · Antioquia Assembly · Medellín Chamber of Commerce.</div>
         </div>
       </div>
       <div class="skills-col">
         <div class="skills-box">
-          <div class="skills-title lang-es">Educación</div><div class="skills-title lang-en lang-hidden">Education</div>
+          <div class="skills-title lang-es lang-hidden">Educación</div><div class="skills-title lang-en">Education</div>
           <div class="edu-item">
             <span class="edu-icon">🎓</span>
             <div>
-              <div class="edu-title lang-es">Ingeniería de Sistemas</div><div class="edu-title lang-en lang-hidden">Bachelor in Systems Engineering</div>
+              <div class="edu-title lang-es lang-hidden">Ingeniería de Sistemas</div><div class="edu-title lang-en">Bachelor in Systems Engineering</div>
               <div class="edu-sub">Universidad Antonio Nariño · Bogotá, Colombia</div>
-              <div class="edu-year lang-es">Graduada 2008</div><div class="edu-year lang-en lang-hidden">Graduated 2008</div>
+              <div class="edu-year lang-es lang-hidden">Graduada 2008</div><div class="edu-year lang-en">Graduated 2008</div>
             </div>
           </div>
         </div>
         <div class="skills-box">
-          <div class="skills-title lang-es">Idiomas</div><div class="skills-title lang-en lang-hidden">Languages</div>
+          <div class="skills-title lang-es lang-hidden">Idiomas</div><div class="skills-title lang-en">Languages</div>
           <div class="skill-bar">
-            <div class="skill-row"><span class="skill-name lang-es">Español</span><span class="skill-name lang-en lang-hidden">Spanish</span><span class="skill-level lang-es">Nativo</span><span class="skill-level lang-en lang-hidden">Native</span></div>
+            <div class="skill-row"><span class="skill-name lang-es lang-hidden">Español</span><span class="skill-name lang-en">Spanish</span><span class="skill-level lang-es lang-hidden">Nativo</span><span class="skill-level lang-en">Native</span></div>
             <div class="skill-track"><div class="skill-fill" style="width:100%;"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="skill-row"><span class="skill-name">English</span><span class="skill-level lang-es">Intermedio</span><span class="skill-level lang-en lang-hidden">Intermediate</span></div>
+            <div class="skill-row"><span class="skill-name">English</span><span class="skill-level lang-es lang-hidden">Intermedio</span><span class="skill-level lang-en">Intermediate</span></div>
             <div class="skill-track"><div class="skill-fill" style="width:62%;"></div></div>
           </div>
         </div>
         <div class="skills-box">
-          <div class="skills-title lang-es">Habilidades técnicas</div><div class="skills-title lang-en lang-hidden">Technical skills</div>
+          <div class="skills-title lang-es lang-hidden">Habilidades técnicas</div><div class="skills-title lang-en">Technical skills</div>
           <div class="tag-cloud">
             <span class="tag">ISO 9001</span><span class="tag">ISOlución</span><span class="tag">SIVICO</span>
             <span class="tag">Microsoft 365</span><span class="tag">CRM</span>
-            <span class="tag lang-es">Gestión de proyectos</span><span class="tag lang-en lang-hidden">Project management</span>
-            <span class="tag lang-es">Diseño web</span><span class="tag lang-en lang-hidden">Web design</span>
-            <span class="tag lang-es">Reservas online</span><span class="tag lang-en lang-hidden">Online booking</span>
-            <span class="tag lang-es">Control de calidad</span><span class="tag lang-en lang-hidden">Quality control</span>
-            <span class="tag lang-es">Automatización</span><span class="tag lang-en lang-hidden">Automation</span>
+            <span class="tag lang-es lang-hidden">Gestión de proyectos</span><span class="tag lang-en">Project management</span>
+            <span class="tag lang-es lang-hidden">Diseño web</span><span class="tag lang-en">Web design</span>
+            <span class="tag lang-es lang-hidden">Reservas online</span><span class="tag lang-en">Online booking</span>
+            <span class="tag lang-es lang-hidden">Control de calidad</span><span class="tag lang-en">Quality control</span>
+            <span class="tag lang-es lang-hidden">Automatización</span><span class="tag lang-en">Automation</span>
           </div>
         </div>
         <div class="skills-box dl-btn">
-          <div class="skills-title lang-es">Documentos</div><div class="skills-title lang-en lang-hidden">Documents</div>
+          <div class="skills-title lang-es lang-hidden">Documentos</div><div class="skills-title lang-en">Documents</div>
           <a href="cv-gloria-mayo.pdf" download class="dl-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span class="lang-es">Descargar CV completo</span><span class="lang-en lang-hidden">Download full resume</span>
+            <span class="lang-es lang-hidden">Descargar CV completo</span><span class="lang-en">Download full resume</span>
           </a>
           <a href="https://linkedin.com/in/gloriamayo" target="_blank" class="dl-secondary">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#0077b5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -400,36 +401,36 @@
   <div class="container section-card">
     <div class="section-head">
       <div>
-        <div class="label lang-es">Lo que ofrezco</div><div class="label lang-en lang-hidden">What I offer</div>
-        <h2 class="lang-es">Servicios</h2><h2 class="lang-en lang-hidden">Services</h2>
+        <div class="label lang-es lang-hidden">Lo que ofrezco</div><div class="label lang-en">What I offer</div>
+        <h2 class="lang-es lang-hidden">Servicios</h2><h2 class="lang-en">Services</h2>
       </div>
-      <p class="subcopy lang-es">Soluciones digitales orientadas a resultados reales para negocios locales en Canadá.</p>
-      <p class="subcopy lang-en lang-hidden">Results-oriented digital solutions for local businesses in Canada.</p>
+      <p class="subcopy lang-es lang-hidden">Soluciones digitales orientadas a resultados reales para negocios locales en Canadá.</p>
+      <p class="subcopy lang-en">Results-oriented digital solutions for local businesses in Canada.</p>
     </div>
     <div class="services-grid">
       <article class="service">
         <div class="icon">✺</div>
-        <h3 class="lang-es">CRM y gestión de clientes</h3><h3 class="lang-en lang-hidden">CRM & client management</h3>
-        <p class="lang-es">Base de clientes organizada, historial de contactos, seguimiento y fidelización. Nunca más perder un cliente por desorden.</p>
-        <p class="lang-en lang-hidden">Organized client database, contact history, follow-up and loyalty. Never lose a client to disorganization again.</p>
+        <h3 class="lang-es lang-hidden">CRM y gestión de clientes</h3><h3 class="lang-en">CRM & client management</h3>
+        <p class="lang-es lang-hidden">Base de clientes organizada, historial de contactos, seguimiento y fidelización. Nunca más perder un cliente por desorden.</p>
+        <p class="lang-en">Organized client database, contact history, follow-up and loyalty. Never lose a client to disorganization again.</p>
       </article>
       <article class="service">
         <div class="icon">↗</div>
-        <h3 class="lang-es">Automatización digital</h3><h3 class="lang-en lang-hidden">Digital automation</h3>
-        <p class="lang-es">Recordatorios automáticos, flujos de respuesta, notificaciones y procesos que ahorran tiempo y proyectan profesionalismo.</p>
-        <p class="lang-en lang-hidden">Automatic reminders, response flows, notifications and processes that save time and project professionalism.</p>
+        <h3 class="lang-es lang-hidden">Automatización digital</h3><h3 class="lang-en">Digital automation</h3>
+        <p class="lang-es lang-hidden">Recordatorios automáticos, flujos de respuesta, notificaciones y procesos que ahorran tiempo y proyectan profesionalismo.</p>
+        <p class="lang-en">Automatic reminders, response flows, notifications and processes that save time and project professionalism.</p>
       </article>
       <article class="service">
         <div class="icon">⌘</div>
-        <h3 class="lang-es">Reservas y formularios online</h3><h3 class="lang-en lang-hidden">Online booking & forms</h3>
-        <p class="lang-es">Sistema de citas 24/7, formularios de contacto, disponibilidad en tiempo real y mejor experiencia para el cliente desde el primer clic.</p>
-        <p class="lang-en lang-hidden">24/7 appointment system, contact forms, real-time availability and better client experience from the first click.</p>
+        <h3 class="lang-es lang-hidden">Reservas y formularios online</h3><h3 class="lang-en">Online booking & forms</h3>
+        <p class="lang-es lang-hidden">Sistema de citas 24/7, formularios de contacto, disponibilidad en tiempo real y mejor experiencia para el cliente desde el primer clic.</p>
+        <p class="lang-en">24/7 appointment system, contact forms, real-time availability and better client experience from the first click.</p>
       </article>
       <article class="service">
         <div class="icon">✦</div>
-        <h3 class="lang-es">Páginas web premium</h3><h3 class="lang-en lang-hidden">Premium websites</h3>
-        <p class="lang-es">Sitios elegantes, claros y estratégicos que proyectan profesionalismo y facilitan el contacto con nuevos clientes.</p>
-        <p class="lang-en lang-hidden">Elegant, clear and strategic sites that project professionalism and make it easy for new clients to reach you.</p>
+        <h3 class="lang-es lang-hidden">Páginas web premium</h3><h3 class="lang-en">Premium websites</h3>
+        <p class="lang-es lang-hidden">Sitios elegantes, claros y estratégicos que proyectan profesionalismo y facilitan el contacto con nuevos clientes.</p>
+        <p class="lang-en">Elegant, clear and strategic sites that project professionalism and make it easy for new clients to reach you.</p>
       </article>
     </div>
   </div>
@@ -439,16 +440,16 @@
 <section>
   <div class="container fit-banner">
     <div>
-      <h3 class="lang-es">Especialmente valioso para salones, barberías y negocios de servicios</h3>
-      <h3 class="lang-en lang-hidden">Especially valuable for salons, barbershops and service businesses</h3>
-      <p class="lang-es">Este sector compra confianza visual, facilidad de contacto y orden. Tu web debe transmitir exactamente eso desde el primer segundo.</p>
-      <p class="lang-en lang-hidden">This sector buys visual trust, ease of contact and structure. Your website must convey exactly that from the very first second.</p>
+      <h3 class="lang-es lang-hidden">Especialmente valioso para salones, barberías y negocios de servicios</h3>
+      <h3 class="lang-en">Especially valuable for salons, barbershops and service businesses</h3>
+      <p class="lang-es lang-hidden">Este sector compra confianza visual, facilidad de contacto y orden. Tu web debe transmitir exactamente eso desde el primer segundo.</p>
+      <p class="lang-en">This sector buys visual trust, ease of contact and structure. Your website must convey exactly that from the very first second.</p>
       <div class="fit-tags">
         <span>💇‍♀️ Beauty salons</span><span>💈 Barbershops</span><span>🌿 Wellness brands</span><span>🏪 Local businesses</span><span>👩‍💻 Personal brands</span>
       </div>
     </div>
     <a href="#contacto" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.22);white-space:nowrap;">
-      <span class="lang-es">Hablemos</span><span class="lang-en lang-hidden">Let's talk</span>
+      <span class="lang-es lang-hidden">Hablemos</span><span class="lang-en">Let's talk</span>
     </a>
   </div>
 </section>
@@ -458,51 +459,51 @@
   <div class="container projects-wrap">
     <div class="section-head">
       <div>
-        <div class="label lang-es">Portafolio</div><div class="label lang-en lang-hidden">Portfolio</div>
-        <h2 class="lang-es">Proyectos destacados</h2><h2 class="lang-en lang-hidden">Featured projects</h2>
+        <div class="label lang-es lang-hidden">Portafolio</div><div class="label lang-en">Portfolio</div>
+        <h2 class="lang-es lang-hidden">Proyectos destacados</h2><h2 class="lang-en">Featured projects</h2>
       </div>
-      <p class="subcopy lang-es">Proyectos reales con identidad, propósito y resultados concretos.</p>
-      <p class="subcopy lang-en lang-hidden">Real projects with identity, purpose and concrete results.</p>
+      <p class="subcopy lang-es lang-hidden">Proyectos reales con identidad, propósito y resultados concretos.</p>
+      <p class="subcopy lang-en">Real projects with identity, purpose and concrete results.</p>
     </div>
     <div class="projects-grid">
       <article class="project">
-        <div class="project-shot lang-es">Logo o imagen de marca</div><div class="project-shot lang-en lang-hidden">Logo or brand image</div>
+        <div class="project-shot lang-es lang-hidden">Logo o imagen de marca</div><div class="project-shot lang-en">Logo or brand image</div>
         <div>
-          <small class="lang-es">01 · empresa propia en Canadá</small><small class="lang-en lang-hidden">01 · own company in Canada</small>
+          <small class="lang-es lang-hidden">01 · empresa propia en Canadá</small><small class="lang-en">01 · own company in Canada</small>
           <h3>G&amp;L Services Group</h3>
-          <p class="lang-es">Base empresarial para servicios digitales, presencia profesional y crecimiento de portafolio.</p>
-          <p class="lang-en lang-hidden">Business foundation for digital services, professional presence and portfolio growth.</p>
-          <a href="#contacto"><span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span> ↗</a>
+          <p class="lang-es lang-hidden">Base empresarial para servicios digitales, presencia profesional y crecimiento de portafolio.</p>
+          <p class="lang-en">Business foundation for digital services, professional presence and portfolio growth.</p>
+          <a href="#contacto"><span class="lang-es lang-hidden">Ver detalle</span><span class="lang-en">View detail</span> ↗</a>
         </div>
       </article>
       <article class="project">
-        <div class="project-shot lang-es">Captura de la web</div><div class="project-shot lang-en lang-hidden">Website screenshot</div>
+        <div class="project-shot lang-es lang-hidden">Captura de la web</div><div class="project-shot lang-en">Website screenshot</div>
         <div>
-          <small class="lang-es">02 · negocio local · Canadá</small><small class="lang-en lang-hidden">02 · local business · Canada</small>
+          <small class="lang-es lang-hidden">02 · negocio local · Canadá</small><small class="lang-en">02 · local business · Canada</small>
           <h3>Vaughan Sewing</h3>
-          <p class="lang-es">Marca de costura con estética elegante, femenina y cercana para cliente local en Canadá.</p>
-          <p class="lang-en lang-hidden">Sewing brand with elegant, feminine and approachable aesthetic for local clients in Canada.</p>
-          <a href="#contacto"><span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span> ↗</a>
+          <p class="lang-es lang-hidden">Marca de costura con estética elegante, femenina y cercana para cliente local en Canadá.</p>
+          <p class="lang-en">Sewing brand with elegant, feminine and approachable aesthetic for local clients in Canada.</p>
+          <a href="#contacto"><span class="lang-es lang-hidden">Ver detalle</span><span class="lang-en">View detail</span> ↗</a>
         </div>
       </article>
       <article class="project">
-        <div class="project-shot lang-es">Screenshot del sistema</div><div class="project-shot lang-en lang-hidden">System screenshot</div>
+        <div class="project-shot lang-es lang-hidden">Screenshot del sistema</div><div class="project-shot lang-en">System screenshot</div>
         <div>
-          <small class="lang-es">03 · reservas y organización</small><small class="lang-en lang-hidden">03 · booking & organization</small>
+          <small class="lang-es lang-hidden">03 · reservas y organización</small><small class="lang-en">03 · booking & organization</small>
           <h3>Appointly</h3>
-          <p class="lang-es">Sistema de reservas y organización comercial para negocios que viven de citas y clientes recurrentes.</p>
-          <p class="lang-en lang-hidden">Booking and commercial organization system for businesses that run on appointments and recurring clients.</p>
-          <a href="#contacto"><span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span> ↗</a>
+          <p class="lang-es lang-hidden">Sistema de reservas y organización comercial para negocios que viven de citas y clientes recurrentes.</p>
+          <p class="lang-en">Booking and commercial organization system for businesses that run on appointments and recurring clients.</p>
+          <a href="#contacto"><span class="lang-es lang-hidden">Ver detalle</span><span class="lang-en">View detail</span> ↗</a>
         </div>
       </article>
       <article class="project">
-        <div class="project-shot lang-es">Portada del sitio</div><div class="project-shot lang-en lang-hidden">Site cover</div>
+        <div class="project-shot lang-es lang-hidden">Portada del sitio</div><div class="project-shot lang-en">Site cover</div>
         <div>
-          <small class="lang-es">04 · proyecto editorial web</small><small class="lang-en lang-hidden">04 · editorial web project</small>
+          <small class="lang-es lang-hidden">04 · proyecto editorial web</small><small class="lang-en">04 · editorial web project</small>
           <h3>Vivir Ligero</h3>
-          <p class="lang-es">Sitio de bienestar con identidad editorial cuidada y comunicación visual limpia y con propósito.</p>
-          <p class="lang-en lang-hidden">Wellness site with refined editorial identity and clean, purposeful visual communication.</p>
-          <a href="#contacto"><span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span> ↗</a>
+          <p class="lang-es lang-hidden">Sitio de bienestar con identidad editorial cuidada y comunicación visual limpia y con propósito.</p>
+          <p class="lang-en">Wellness site with refined editorial identity and clean, purposeful visual communication.</p>
+          <a href="#contacto"><span class="lang-es lang-hidden">Ver detalle</span><span class="lang-en">View detail</span> ↗</a>
         </div>
       </article>
     </div>
@@ -513,19 +514,19 @@
 <section id="contacto">
   <div class="container contact-card">
     <div class="contact-info">
-      <div class="label lang-es">Hablemos</div><div class="label lang-en lang-hidden">Let's connect</div>
-      <h2 class="lang-es">¿Lista para transformar tu negocio?</h2><h2 class="lang-en lang-hidden">Ready to transform your business?</h2>
-      <p class="lang-es">Disponible para páginas web, CRM, reservas, automatización y soluciones digitales para negocios locales en Canadá.</p>
-      <p class="lang-en lang-hidden">Available for websites, CRM, booking, automation and digital solutions for local businesses in Canada.</p>
+      <div class="label lang-es lang-hidden">Hablemos</div><div class="label lang-en">Let's connect</div>
+      <h2 class="lang-es lang-hidden">¿Lista para transformar tu negocio?</h2><h2 class="lang-en">Ready to transform your business?</h2>
+      <p class="lang-es lang-hidden">Disponible para páginas web, CRM, reservas, automatización y soluciones digitales para negocios locales en Canadá.</p>
+      <p class="lang-en">Available for websites, CRM, booking, automation and digital solutions for local businesses in Canada.</p>
       <div class="contact-list">
         <div class="contact-item"><strong>Email</strong>givone@hotmail.com</div>
-        <div class="contact-item"><strong class="lang-es">Teléfono</strong><strong class="lang-en lang-hidden">Phone</strong>+1 437-677-9018</div>
-        <div class="contact-item"><strong class="lang-es">Ubicación</strong><strong class="lang-en lang-hidden">Location</strong>Vaughan, Ontario, Canada</div>
-        <div class="contact-item"><strong class="lang-es">Empresa</strong><strong class="lang-en lang-hidden">Company</strong>G&amp;L Services Group</div>
+        <div class="contact-item"><strong class="lang-es lang-hidden">Teléfono</strong><strong class="lang-en">Phone</strong>+1 437-677-9018</div>
+        <div class="contact-item"><strong class="lang-es lang-hidden">Ubicación</strong><strong class="lang-en">Location</strong>Vaughan, Ontario, Canada</div>
+        <div class="contact-item"><strong class="lang-es lang-hidden">Empresa</strong><strong class="lang-en">Company</strong>G&amp;L Services Group</div>
       </div>
     </div>
     <a class="btn btn-primary" href="mailto:givone@hotmail.com?subject=Consulta%20desde%20gloriamayo.com">
-      <span class="lang-es">Contáctame</span><span class="lang-en lang-hidden">Contact me</span>
+      <span class="lang-es lang-hidden">Contáctame</span><span class="lang-en">Contact me</span>
     </a>
   </div>
 </section>
@@ -536,10 +537,10 @@
   <div class="container footer-row">
     <div>
       <strong style="color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:1.4rem;">Gloria Mayo</strong><br>
-      <span class="lang-es" style="font-size:.85rem;">Soluciones digitales · G&amp;L Services Group</span>
-      <span class="lang-en lang-hidden" style="font-size:.85rem;">Digital solutions · G&amp;L Services Group</span>
+      <span class="lang-es lang-hidden" style="font-size:.85rem;">Soluciones digitales · G&amp;L Services Group</span>
+      <span class="lang-en" style="font-size:.85rem;">Digital solutions · G&amp;L Services Group</span>
     </div>
-    <div>© <span id="year"></span> Gloria Ivone Mayo Arango · G&amp;L Services Group. <span class="lang-es">Todos los derechos reservados.</span><span class="lang-en lang-hidden">All rights reserved.</span></div>
+    <div>© <span id="year"></span> Gloria Ivone Mayo Arango · G&amp;L Services Group. <span class="lang-es lang-hidden">Todos los derechos reservados.</span><span class="lang-en">All rights reserved.</span></div>
   </div>
 </footer>
 
@@ -552,6 +553,18 @@
     document.getElementById('btn-es').classList.toggle('active', isEs);
     document.getElementById('btn-en').classList.toggle('active', !isEs);
     document.documentElement.lang = lang;
+    // Update mobile buttons
+    const mobEn = document.getElementById('mob-btn-en');
+    const mobEs = document.getElementById('mob-btn-es');
+    if(mobEn && mobEs) {
+      if(isEs) {
+        mobEs.style.background='var(--accent)'; mobEs.style.color='white';
+        mobEn.style.background=''; mobEn.style.color='var(--muted)';
+      } else {
+        mobEn.style.background='var(--accent)'; mobEn.style.color='white';
+        mobEs.style.background=''; mobEs.style.color='var(--muted)';
+      }
+    }
   }
   function toggleMenu() {
     const menu = document.getElementById('mobile-menu');
