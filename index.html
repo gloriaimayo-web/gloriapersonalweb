@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gloria Mayo · Soluciones Digitales</title>
+  <meta name="description" content="Ingeniera de Sistemas y especialista en soluciones digitales para negocios locales. Fundadora de G&L Services Group en Canadá." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .script-name { font-family: 'Great Vibes', cursive; letter-spacing: 0.5px; }
+    .placeholder-box {
+      position: relative; overflow: hidden; border-radius: 1.75rem;
+      border: 2px dashed #b8898f; background: #f7efef; min-height: 220px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 2rem; text-align: center;
+    }
+    .placeholder-box.tall { min-height: 280px; }
+    .placeholder-badge {
+      margin-bottom: 0.75rem; border-radius: 9999px;
+      border: 1px solid #c59aa0; background: rgba(255,255,255,0.8);
+      padding: 2px 12px; font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.3em; color: #8e4d56;
+    }
+    .lang-hidden { display: none !important; }
+    nav a { transition: color 0.2s; }
+    nav a:hover { color: #8a3f4c; }
+    .btn-lang { border-radius: 9999px; padding: 6px 12px; font-size: 12px; font-weight: 500; transition: all 0.2s; color: #475569; cursor: pointer; border: none; background: transparent; }
+    .btn-lang.active { background: #8a3f4c; color: white; }
+    .hover-up { transition: transform 0.2s; }
+    .hover-up:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800" style="background: radial-gradient(circle at top, #fbf6f3, white 34%, #f8fafc 72%);">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-30 border-b border-white/70 backdrop-blur-xl" style="background: rgba(255,255,255,0.75);">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+    <div>
+      <div class="script-name text-4xl leading-none text-[#8a3f4c] md:text-5xl">Gloria Mayo</div>
+      <div class="mt-1 text-[10px] uppercase tracking-[0.35em] text-slate-500 md:text-xs lang-es">Especialista en Soluciones Digitales para Negocios Locales</div>
+      <div class="mt-1 text-[10px] uppercase tracking-[0.35em] text-slate-500 md:text-xs lang-en lang-hidden">Digital Solutions Specialist for Local Businesses</div>
+    </div>
+    <nav class="hidden items-center gap-6 md:flex text-sm text-slate-600">
+      <a href="#inicio" class="lang-es">Inicio</a>
+      <a href="#inicio" class="lang-en lang-hidden">Home</a>
+      <a href="#sobre-mi" class="lang-es">Sobre mí</a>
+      <a href="#sobre-mi" class="lang-en lang-hidden">About</a>
+      <a href="#servicios" class="lang-es">Servicios</a>
+      <a href="#servicios" class="lang-en lang-hidden">Services</a>
+      <a href="#proyectos" class="lang-es">Proyectos</a>
+      <a href="#proyectos" class="lang-en lang-hidden">Projects</a>
+      <a href="#pasiones" class="lang-es">Pasiones</a>
+      <a href="#pasiones" class="lang-en lang-hidden">Passions</a>
+      <a href="#contacto" class="lang-es">Contacto</a>
+      <a href="#contacto" class="lang-en lang-hidden">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2 rounded-full border border-[#e9d7da] bg-[#fff8f8] p-1 shadow-sm">
+      <button class="btn-lang active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="btn-lang" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="inicio" class="mx-auto grid max-w-7xl gap-10 px-6 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pt-20">
+  <div class="self-center">
+    <div class="mb-5 inline-flex rounded-full border border-[#ead6d9] bg-[#fff7f7] px-4 py-2 text-xs font-medium text-[#8a3f4c] shadow-sm">
+      <span class="lang-es">Bilingüe · Tecnología · Negocios locales · Marca personal</span>
+      <span class="lang-en lang-hidden">Bilingual · Technology · Local business · Personal brand</span>
+    </div>
+    <h1 class="max-w-3xl text-4xl font-semibold leading-tight text-slate-900 md:text-6xl">
+      <span class="lang-es">Transformo experiencia, creatividad y disciplina en soluciones digitales con identidad propia.</span>
+      <span class="lang-en lang-hidden">I turn experience, creativity, and discipline into digital solutions with a strong personal identity.</span>
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+      <span class="lang-es">Soy Ingeniera de Sistemas, creadora y dueña de G&amp;L Services Group en Canadá. Desarrollo páginas web, sistemas de reservas, CRM y automatización para negocios locales, con una visión humana, estratégica y orientada a resultados.</span>
+      <span class="lang-en lang-hidden">I am a Systems Engineer and founder of G&amp;L Services Group in Canada. I build websites, booking systems, CRM workflows, and automation for local businesses with a human, strategic, and results-driven approach.</span>
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="#proyectos" class="hover-up inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 text-sm font-medium text-white shadow-lg">
+        <span class="lang-es">Ver proyectos</span><span class="lang-en lang-hidden">View projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#contacto" class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
+        <span class="lang-es">Contáctame</span><span class="lang-en lang-hidden">Contact me</span>
+      </a>
+    </div>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+        <div class="text-2xl font-semibold text-slate-900 lang-es">15+ años</div>
+        <div class="text-2xl font-semibold text-slate-900 lang-en lang-hidden">15+ years</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-es">en sistemas, soporte, calidad y gestión digital</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-en lang-hidden">in systems, support, quality, and digital management</div>
+      </div>
+      <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+        <div class="text-2xl font-semibold text-slate-900 lang-es">Desde sep 2022</div>
+        <div class="text-2xl font-semibold text-slate-900 lang-en lang-hidden">Since Sep 2022</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-es">experiencia actual en Costco Canadá</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-en lang-hidden">current experience at Costco Canada</div>
+      </div>
+      <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+        <div class="text-2xl font-semibold text-slate-900">G&amp;L Services Group</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-es">empresa propia creada en Canadá</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-en lang-hidden">company founded in Canada</div>
+      </div>
+      <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+        <div class="text-2xl font-semibold text-slate-900 lang-es">Proyectos reales</div>
+        <div class="text-2xl font-semibold text-slate-900 lang-en lang-hidden">Real projects</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-es">Vaughan Sewing, Appointly y Vivir Ligero</div>
+        <div class="mt-2 text-sm leading-6 text-slate-600 lang-en lang-hidden">Vaughan Sewing, Appointly, and Vivir Ligero</div>
+      </div>
+    </div>
+  </div>
+  <div class="grid gap-5">
+    <div class="placeholder-box tall">
+      <div class="placeholder-badge">Foto</div>
+      <div class="text-lg font-medium text-[#7b3d45] lang-es">Espacio para foto profesional principal</div>
+      <div class="text-lg font-medium text-[#7b3d45] lang-en lang-hidden">Space for main professional photo</div>
+      <div class="mt-3 max-w-sm text-sm leading-7 text-slate-500 lang-es">Ideal para tu retrato elegante: fondo limpio, luz suave, vestimenta neutra y presencia cálida.</div>
+      <div class="mt-3 max-w-sm text-sm leading-7 text-slate-500 lang-en lang-hidden">Ideal for your elegant portrait: clean background, soft light, neutral attire, warm presence.</div>
+    </div>
+    <div class="rounded-[2rem] border border-white bg-white/90 p-5 shadow-xl shadow-slate-200/60">
+      <div class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-400 lang-es">Perfil actual</div>
+      <div class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-400 lang-en lang-hidden">Current profile</div>
+      <div class="rounded-[1.5rem] p-5" style="background: linear-gradient(135deg, #f5e9ea, #fffdfb, #eef5f2);">
+        <div class="mb-3 flex items-center gap-2 text-sm text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Vaughan, Ontario, Canada
+        </div>
+        <div class="text-2xl font-semibold text-slate-900 lang-es">Tecnología + creatividad + servicio</div>
+        <div class="text-2xl font-semibold text-slate-900 lang-en lang-hidden">Technology + creativity + service</div>
+        <div class="mt-3 text-sm leading-7 text-slate-600 lang-es">Ingeniera de Sistemas, empresaria digital y profesional activa en Costco. Combino estructura operativa, sensibilidad estética y ejecución práctica.</div>
+        <div class="mt-3 text-sm leading-7 text-slate-600 lang-en lang-hidden">Systems Engineer, digital entrepreneur, and active Costco professional. I combine operational structure, aesthetic sensitivity, and practical execution.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" class="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+  <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div class="rounded-[2rem] bg-slate-900 p-8 text-white shadow-xl">
+      <div class="text-sm uppercase tracking-[0.25em] text-[#d7b4ba] lang-es">Sobre mí</div>
+      <div class="text-sm uppercase tracking-[0.25em] text-[#d7b4ba] lang-en lang-hidden">About me</div>
+      <p class="mt-5 text-base leading-8 text-slate-200 lang-es">Tengo más de 15 años de experiencia en soporte técnico, administración de plataformas, calidad de software y gestión de proyectos digitales. Hoy vivo en Canadá, donde además de trabajar en Costco desde septiembre 29 de 2022, he seguido construyendo proyectos propios con una mirada profesional, cercana y enfocada en soluciones reales. Mi marca integra trayectoria técnica, disciplina operativa y un estilo personal elegante y humano.</p>
+      <p class="mt-5 text-base leading-8 text-slate-200 lang-en lang-hidden">I have more than 15 years of experience in technical support, platform administration, software quality, and digital project management. Today I live in Canada, where in addition to working at Costco since September 29, 2022, I have continued building my own projects with a professional, warm, and solution-oriented perspective. My brand combines technical background, operational discipline, and an elegant, human style.</p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+          <div class="mb-2 flex items-center gap-2 text-sm font-medium text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d7b4ba" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Costco
+          </div>
+          <div class="text-sm leading-7 text-slate-300 lang-es">Experiencia actual en Canadá dentro de un entorno operativo exigente y estructurado.</div>
+          <div class="text-sm leading-7 text-slate-300 lang-en lang-hidden">Current experience in Canada within a demanding and structured operational environment.</div>
+        </div>
+        <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+          <div class="mb-2 flex items-center gap-2 text-sm font-medium text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d7b4ba" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            G&amp;L Services Group
+          </div>
+          <div class="text-sm leading-7 text-slate-300 lang-es">Base empresarial para consolidar tu portafolio, marca y servicios digitales.</div>
+          <div class="text-sm leading-7 text-slate-300 lang-en lang-hidden">Business foundation to consolidate your portfolio, brand, and digital services.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+      <div class="mb-4 text-sm uppercase tracking-[0.25em] text-slate-400 lang-es">Experiencia que fortalece mi marca</div>
+      <div class="mb-4 text-sm uppercase tracking-[0.25em] text-slate-400 lang-en lang-hidden">Experience that strengthens my brand</div>
+      <div class="space-y-4">
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-es">Ingeniería de Sistemas y trayectoria profesional en proyectos tecnológicos.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-en lang-hidden">Systems Engineering and professional experience in technology projects.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-es">Creadora y dueña de G&amp;L Services Group en Canadá.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-en lang-hidden">Founder and owner of G&amp;L Services Group in Canada.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-es">Trabajo actual en Costco desde septiembre 29 de 2022, en un entorno de alta exigencia y estándares operativos.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-en lang-hidden">Current Costco role since September 29, 2022, in a high-demand operational environment.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-es">Desarrollo de proyectos reales como Vaughan Sewing, Appointly y Vivir Ligero.</div>
+        <div class="rounded-[1.25rem] bg-slate-50 p-4 text-sm leading-7 text-slate-700 lang-en lang-hidden">Development of real projects such as Vaughan Sewing, Appointly, and Vivir Ligero.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+  <div class="rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+    <div class="text-sm uppercase tracking-[0.25em] text-slate-400 lang-es">Servicios</div>
+    <div class="text-sm uppercase tracking-[0.25em] text-slate-400 lang-en lang-hidden">Services</div>
+    <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div class="rounded-[1.5rem] bg-slate-50 p-5">
+        <div class="text-lg font-semibold text-slate-900 lang-es">Páginas web con identidad</div>
+        <div class="text-lg font-semibold text-slate-900 lang-en lang-hidden">Websites with identity</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-es">Sitios visualmente elegantes, claros y estratégicos para marcas personales y negocios locales.</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-en lang-hidden">Elegant, clear, and strategic websites for personal brands and local businesses.</div>
+      </div>
+      <div class="rounded-[1.5rem] bg-slate-50 p-5">
+        <div class="text-lg font-semibold text-slate-900 lang-es">Sistemas de reservas online</div>
+        <div class="text-lg font-semibold text-slate-900 lang-en lang-hidden">Online booking systems</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-es">Implementación de booking para servicios con formularios, disponibilidad y mejor experiencia del cliente.</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-en lang-hidden">Booking implementation for service businesses with forms, availability, and a better customer experience.</div>
+      </div>
+      <div class="rounded-[1.5rem] bg-slate-50 p-5">
+        <div class="text-lg font-semibold text-slate-900 lang-es">CRM y automatización</div>
+        <div class="text-lg font-semibold text-slate-900 lang-en lang-hidden">CRM and automation</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-es">Organización de clientes, recordatorios, seguimiento comercial y procesos más ordenados.</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-en lang-hidden">Customer organization, reminders, follow-up flows, and more structured operations.</div>
+      </div>
+      <div class="rounded-[1.5rem] bg-slate-50 p-5">
+        <div class="text-lg font-semibold text-slate-900 lang-es">Optimización digital</div>
+        <div class="text-lg font-semibold text-slate-900 lang-en lang-hidden">Digital optimization</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-es">Análisis y mejora de procesos para ahorrar tiempo, proyectar mejor la marca y crecer con orden.</div>
+        <div class="mt-2 text-sm leading-7 text-slate-600 lang-en lang-hidden">Process analysis and improvement to save time, strengthen your brand, and grow with structure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+  <div class="rounded-[2.25rem] p-8 text-white md:p-10" style="background: linear-gradient(to right, #58262d, #0f172a, #1e293b);">
+    <div class="text-sm uppercase tracking-[0.25em] text-[#d7b4ba] lang-es">Proyectos destacados</div>
+    <div class="text-sm uppercase tracking-[0.25em] text-[#d7b4ba] lang-en lang-hidden">Featured projects</div>
+    <div class="mt-6 grid gap-5 md:grid-cols-2">
+
+      <div class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5">
+        <div class="grid lg:grid-cols-2">
+          <div class="p-5">
+            <div class="placeholder-box"><div class="placeholder-badge">Foto</div><div class="text-lg font-medium text-[#7b3d45]">G&amp;L Services Group</div><div class="mt-2 text-sm text-slate-500 lang-es">Espacio para logo o imagen de marca</div><div class="mt-2 text-sm text-slate-500 lang-en lang-hidden">Space for logo or brand image</div></div>
+          </div>
+          <div class="p-6">
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-es">01 · Empresa en Canadá</div>
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-en lang-hidden">01 · Company in Canada</div>
+            <div class="text-2xl font-semibold">G&amp;L Services Group</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-es">Mi empresa propia, enfocada en soluciones digitales para negocios y proyectos con identidad clara.</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-en lang-hidden">My own company, focused on digital solutions for businesses and brand-led projects.</div>
+            <button class="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20 transition-colors">
+              <span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5">
+        <div class="grid lg:grid-cols-2">
+          <div class="p-5">
+            <div class="placeholder-box"><div class="placeholder-badge">Foto</div><div class="text-lg font-medium text-[#7b3d45]">Vaughan Sewing</div><div class="mt-2 text-sm text-slate-500 lang-es">Espacio para captura de la web</div><div class="mt-2 text-sm text-slate-500 lang-en lang-hidden">Space for website screenshot</div></div>
+          </div>
+          <div class="p-6">
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-es">02 · Negocio local · Canadá</div>
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-en lang-hidden">02 · Local business · Canada</div>
+            <div class="text-2xl font-semibold">Vaughan Sewing</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-es">Marca orientada a costura y servicio personalizado, con una estética elegante y cercana.</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-en lang-hidden">A sewing and personalized service brand with an elegant and approachable aesthetic.</div>
+            <button class="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20 transition-colors">
+              <span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5">
+        <div class="grid lg:grid-cols-2">
+          <div class="p-5">
+            <div class="placeholder-box"><div class="placeholder-badge">Foto</div><div class="text-lg font-medium text-[#7b3d45]">Appointly</div><div class="mt-2 text-sm text-slate-500 lang-es">Espacio para screenshot del sistema</div><div class="mt-2 text-sm text-slate-500 lang-en lang-hidden">Space for system screenshot</div></div>
+          </div>
+          <div class="p-6">
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-es">03 · Producto digital</div>
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-en lang-hidden">03 · Digital product</div>
+            <div class="text-2xl font-semibold">Appointly</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-es">Plataforma de reservas y CRM pensada para ayudar a negocios locales a organizar su operación.</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-en lang-hidden">A booking and CRM platform designed to help local businesses organize their operations.</div>
+            <button class="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20 transition-colors">
+              <span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5">
+        <div class="grid lg:grid-cols-2">
+          <div class="p-5">
+            <div class="placeholder-box"><div class="placeholder-badge">Foto</div><div class="text-lg font-medium text-[#7b3d45]">Vivir Ligero</div><div class="mt-2 text-sm text-slate-500 lang-es">Espacio para imagen de portada</div><div class="mt-2 text-sm text-slate-500 lang-en lang-hidden">Space for project cover image</div></div>
+          </div>
+          <div class="p-6">
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-es">04 · Proyecto web · Medellín</div>
+            <div class="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-[#d7b4ba] lang-en lang-hidden">04 · Website project · Medellín</div>
+            <div class="text-2xl font-semibold">Vivir Ligero</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-es">Nueva página web lista para publicar, vinculada a bienestar, estilo de vida y comunicación visual limpia.</div>
+            <div class="mt-3 text-sm leading-7 text-slate-200 lang-en lang-hidden">A newly finished website linked to wellbeing, lifestyle, and clean visual communication.</div>
+            <button class="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20 transition-colors">
+              <span class="lang-es">Ver detalle</span><span class="lang-en lang-hidden">View detail</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PASIONES -->
+<section id="pasiones" class="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+  <div class="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+    <div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+      <div class="text-sm uppercase tracking-[0.25em] text-slate-400 lang-es">Lo que me apasiona en mi tiempo libre</div>
+      <div class="text-sm uppercase tracking-[0.25em] text-slate-400 lang-en lang-hidden">What I love in my free time</div>
+      <p class="mt-5 text-base leading-8 text-slate-600 lang-es">La costura y el cuidado de plantas hacen parte de mi vida personal y de mi forma de entender el trabajo bien hecho. La costura representa precisión, detalle y transformación; las plantas, paciencia, constancia y cuidado. Estas pasiones enriquecen mi marca porque muestran que detrás de la tecnología también hay sensibilidad, gusto estético y dedicación.</p>
+      <p class="mt-5 text-base leading-8 text-slate-600 lang-en lang-hidden">Sewing and plant care are part of my personal life and my way of understanding meaningful work. Sewing represents precision, detail, and transformation; plants reflect patience, consistency, and care. These passions enrich my brand because they show that behind technology there is also sensitivity, aesthetic taste, and dedication.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-es">Costura</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-en lang-hidden">Sewing</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-es">Plantas</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-en lang-hidden">Plants</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-es">Creatividad</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-en lang-hidden">Creativity</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-es">Disciplina</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-en lang-hidden">Discipline</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-es">Detalle</span>
+        <span class="rounded-full bg-[#f6ebec] px-4 py-2 text-sm text-[#8a3f4c] lang-en lang-hidden">Detail</span>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-[1.5rem] border border-slate-200 p-4">
+          <div class="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+            <span class="lang-es">Costura</span><span class="lang-en lang-hidden">Sewing</span>
+          </div>
+          <div class="placeholder-box"><div class="placeholder-badge">Foto</div><div class="text-base font-medium text-[#7b3d45] lang-es">Costura</div><div class="text-base font-medium text-[#7b3d45] lang-en lang-hidden">Sewing</div><div class="mt-2 text-sm text-slate-500 lang-es">Espacio para foto trabajando, telas o piezas terminadas</div><div class="mt-2 text-sm text-slate-500 lang-en lang-hidden">Space for a photo working with fabrics or finished pieces</div></div>
+        </div>
+        <div class="rounded-[1.5rem] border border-slate-200 p-4">
+          <div class="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><path d="M17 8C8 10 5.9 16.17 3.82 22M9.5 22H12M9 22c0-2.5 1.5-5 3-7"/></svg>
+            <span class="lang-es">Plantas</span><span class="lang-en lang-hidden">Plants</span>
+          </div>
+          <div class="placeholder-box"><div class="placeholder-badge">Foto</div><div class="text-base font-medium text-[#7b3d45] lang-es">Plantas</div><div class="text-base font-medium text-[#7b3d45] lang-en lang-hidden">Plants</div><div class="mt-2 text-sm text-slate-500 lang-es">Espacio para foto personal con plantas o jardín</div><div class="mt-2 text-sm text-slate-500 lang-en lang-hidden">Space for a personal photo with plants or garden</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-[2rem] p-8 shadow-sm" style="background: linear-gradient(135deg, #f9f1f1, white, #eef6f1);">
+      <div class="grid gap-4">
+        <div class="rounded-[1.5rem] bg-white p-5 shadow-sm">
+          <div class="text-sm font-semibold text-slate-900 lang-es">Imagen de marca</div>
+          <div class="text-sm font-semibold text-slate-900 lang-en lang-hidden">Brand image</div>
+          <div class="mt-2 text-sm leading-7 text-slate-600 lang-es">Elegante, femenina, profesional y cálida. La tipografía de tu nombre toma inspiración visual del estilo que te gusta en Vaughan Sewing.</div>
+          <div class="mt-2 text-sm leading-7 text-slate-600 lang-en lang-hidden">Elegant, feminine, professional, and warm. The typography of your name takes visual inspiration from the style you love in Vaughan Sewing.</div>
+        </div>
+        <div class="rounded-[1.5rem] bg-white p-5 shadow-sm">
+          <div class="text-sm font-semibold text-slate-900 lang-es">Uso estratégico de imágenes</div>
+          <div class="text-sm font-semibold text-slate-900 lang-en lang-hidden">Strategic use of images</div>
+          <div class="mt-2 text-sm leading-7 text-slate-600 lang-es">Aquí la fotografía sí es necesaria: una foto profesional tuya, imágenes de proyectos y dos imágenes personales bien cuidadas para humanizar la marca.</div>
+          <div class="mt-2 text-sm leading-7 text-slate-600 lang-en lang-hidden">Photography is key here: a professional photo of you, project images, and two carefully chosen personal images to humanize the brand.</div>
+        </div>
+        <div class="rounded-[1.5rem] bg-slate-900 p-5 text-white shadow-sm">
+          <div class="text-sm font-semibold lang-es">Dirección visual</div>
+          <div class="text-sm font-semibold lang-en lang-hidden">Visual direction</div>
+          <div class="mt-2 text-sm leading-7 text-slate-200 lang-es">Fondo claro, detalles rosados vino, mucho aire visual, secciones limpias y sensación premium sin recargar la página.</div>
+          <div class="mt-2 text-sm leading-7 text-slate-200 lang-en lang-hidden">Light background, wine-rose details, generous whitespace, clean sections, and a premium feel without overloading the page.</div>
+        </div>
+        <div class="placeholder-box tall"><div class="placeholder-badge">Foto</div><div class="text-lg font-medium text-[#7b3d45] lang-es">Espacio para collage visual de marca</div><div class="text-lg font-medium text-[#7b3d45] lang-en lang-hidden">Space for personal brand collage</div><div class="mt-3 text-sm text-slate-500 lang-es">Puede incluir detalle de costura, escritorio, pantalla web, plantas y un retrato secundario.</div><div class="mt-3 text-sm text-slate-500 lang-en lang-hidden">Can include sewing details, desk setup, website screen, plants, and a secondary portrait.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="mx-auto max-w-7xl px-6 py-10 lg:px-10">
+  <div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:flex md:items-center md:justify-between md:gap-10">
+    <div>
+      <div class="text-sm uppercase tracking-[0.25em] text-slate-400 lang-es">Contacto</div>
+      <div class="text-sm uppercase tracking-[0.25em] text-slate-400 lang-en lang-hidden">Contact</div>
+      <div class="mt-3 max-w-2xl text-base leading-8 text-slate-600 lang-es">Disponible para colaboraciones, desarrollo de páginas web, soluciones digitales y proyectos para negocios locales.</div>
+      <div class="mt-3 max-w-2xl text-base leading-8 text-slate-600 lang-en lang-hidden">Available for collaborations, website development, digital solutions, and projects for local businesses.</div>
+      <div class="mt-6 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          givone@hotmail.com
+        </div>
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +1 437-677-9018
+        </div>
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Vaughan, Ontario, Canada
+        </div>
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a3f4c" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          G&amp;L Services Group
+        </div>
+      </div>
+    </div>
+    <a href="mailto:givone@hotmail.com" class="mt-6 inline-flex rounded-2xl px-6 py-3 text-sm font-medium text-white shadow-lg md:mt-0 hover-up" style="background: #8a3f4c; box-shadow: 0 10px 25px rgba(138,63,76,0.2);">
+      <span class="lang-es">Contáctame</span><span class="lang-en lang-hidden">Contact me</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/70 bg-white/70">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-center lg:flex-row lg:px-10 lg:text-left">
+    <div>
+      <div class="script-name text-3xl text-[#8a3f4c]">Gloria Mayo</div>
+      <div class="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500">G&amp;L Services Group</div>
+    </div>
+    <div class="text-sm text-slate-500">
+      © <span id="year"></span> Gloria Ivone Mayo Arango · G&amp;L Services Group.
+      <span class="lang-es">Todos los derechos reservados.</span>
+      <span class="lang-en lang-hidden">All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function setLang(lang) {
+    const isEs = lang === 'es';
+    document.querySelectorAll('.lang-es').forEach(el => el.classList.toggle('lang-hidden', !isEs));
+    document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('lang-hidden', isEs));
+    document.getElementById('btn-es').classList.toggle('active', isEs);
+    document.getElementById('btn-en').classList.toggle('active', !isEs);
+    document.documentElement.lang = lang;
+  }
+</script>
+
+</body>
+</html>
