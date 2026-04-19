@@ -210,6 +210,11 @@
   </div>
   <!-- Mobile lang toggle shown inside hamburger -->
   <div id="mobile-menu">
+    <!-- Language toggle inside mobile menu -->
+    <div style="display:flex;gap:8px;padding:14px 20px 10px;border-bottom:2px solid #f5dde2;">
+      <span id="mob-btn-en" onclick="setLang('en');toggleMenu()" style="flex:1;text-align:center;padding:10px 8px;border-radius:12px;font-size:1rem;font-weight:600;background:var(--accent);color:white;cursor:pointer;letter-spacing:0.05em;">EN</span>
+      <span id="mob-btn-es" onclick="setLang('es');toggleMenu()" style="flex:1;text-align:center;padding:10px 8px;border-radius:12px;font-size:1rem;font-weight:600;color:var(--muted);cursor:pointer;letter-spacing:0.05em;border:1px solid var(--line);">ES</span>
+    </div>
     <a href="#inicio" onclick="toggleMenu()" class="lang-es lang-hidden">Inicio</a>
     <a href="#inicio" onclick="toggleMenu()" class="lang-en">Home</a>
     <a href="#sobre-mi" onclick="toggleMenu()" class="lang-es lang-hidden">Perfil profesional</a>
