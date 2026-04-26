@@ -64,10 +64,11 @@
   <h1>Request a System Demo</h1>
   <p>See how our system can transform your business operations</p>
 
-  <form>
-    <input type="text" placeholder="Business Name" required>
+  <form action="https://formspree.io/f/xjgjdwye" method="POST">
+
+    <input type="text" name="business_name" placeholder="Business Name" required>
     
-    <select required>
+    <select name="business_type" required>
       <option value="">Business Type</option>
       <option>Beauty Salon</option>
       <option>Tailoring / Sewing</option>
@@ -75,21 +76,22 @@
       <option>Other</option>
     </select>
 
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email" required>
-    <input type="text" placeholder="Phone / WhatsApp">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="phone" placeholder="Phone / WhatsApp">
 
-    <select>
+    <select name="appointments">
       <option>Do you currently take appointments?</option>
       <option>Yes</option>
       <option>No</option>
     </select>
 
-    <textarea placeholder="What do you need help with?"></textarea>
+    <textarea name="message" placeholder="What do you need help with?"></textarea>
 
-    <input type="date" placeholder="Preferred demo date">
+    <input type="date" name="demo_date">
 
     <button type="submit">Request Demo</button>
+
   </form>
 </div>
 
