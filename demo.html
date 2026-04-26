@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request a System Demo | Gloria Mayo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #6b0f1a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #8c1c2c;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Request a System Demo</h1>
+  <p>See how our system can transform your business operations</p>
+
+  <form>
+    <input type="text" placeholder="Business Name" required>
+    
+    <select required>
+      <option value="">Business Type</option>
+      <option>Beauty Salon</option>
+      <option>Tailoring / Sewing</option>
+      <option>Clinic</option>
+      <option>Other</option>
+    </select>
+
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="text" placeholder="Phone / WhatsApp">
+
+    <select>
+      <option>Do you currently take appointments?</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <textarea placeholder="What do you need help with?"></textarea>
+
+    <input type="date" placeholder="Preferred demo date">
+
+    <button type="submit">Request Demo</button>
+  </form>
+</div>
+
+</body>
+</html>
