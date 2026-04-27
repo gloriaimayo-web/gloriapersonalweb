@@ -21,6 +21,36 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
+    .brand {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .brand-name {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #8b3148;
+      margin-bottom: 5px;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #b26073;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #6b0f1a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
     h1 {
       text-align: center;
       margin-bottom: 10px;
@@ -39,6 +69,7 @@
       border-radius: 6px;
       border: 1px solid #ccc;
       font-size: 14px;
+      box-sizing: border-box;
     }
 
     button {
@@ -60,40 +91,51 @@
 
 <body>
 
-<div class="container">
-  <h1>Request a System Demo</h1>
-  <p>See how our system can transform your business operations</p>
+  <div class="container">
 
-  <form action="https://formspree.io/f/xjgjdwye" method="POST">
+    <a href="/" class="back-home">← Back to Home</a>
 
-    <input type="text" name="business_name" placeholder="Business Name" required>
-    
-    <select name="business_type" required>
-      <option value="">Business Type</option>
-      <option>Beauty Salon</option>
-      <option>Tailoring / Sewing</option>
-      <option>Clinic</option>
-      <option>Other</option>
-    </select>
+    <div class="brand">
+      <div class="brand-name">Gloria Mayo</div>
+      <div class="brand-subtitle">SYSTEMS ENGINEER · DIGITAL SOLUTIONS</div>
+    </div>
 
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="phone" placeholder="Phone / WhatsApp">
+    <h1>Request a System Demo</h1>
+    <p>See how the Autonomous Booking Ecosystem can support your business operations.</p>
 
-    <select name="appointments">
-      <option>Do you currently take appointments?</option>
-      <option>Yes</option>
-      <option>No</option>
-    </select>
+    <form action="https://formspree.io/f/xjgjdwye" method="POST">
 
-    <textarea name="message" placeholder="What do you need help with?"></textarea>
+      <input type="text" name="business_name" placeholder="Business Name" required>
+      
+      <select name="business_type" required>
+        <option value="">Business Type</option>
+        <option>Beauty Salon</option>
+        <option>Barbershop</option>
+        <option>Wellness / Spa</option>
+        <option>Tailoring / Sewing</option>
+        <option>Clinic</option>
+        <option>Other</option>
+      </select>
 
-    <input type="date" name="demo_date">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="phone" placeholder="Phone / WhatsApp">
 
-    <button type="submit">Request Demo</button>
+      <select name="appointments">
+        <option value="">Do you currently take appointments?</option>
+        <option>Yes, manually</option>
+        <option>Yes, with a system</option>
+        <option>No</option>
+      </select>
 
-  </form>
-</div>
+      <textarea name="message" placeholder="What do you need help with?"></textarea>
+
+      <input type="date" name="demo_date">
+
+      <button type="submit">Request Demo</button>
+
+    </form>
+  </div>
 
 </body>
 </html>
