@@ -5,15 +5,17 @@
   <title>Thank You | Gloria Mayo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f7f7f7;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      min-height: 100vh;
     }
 
     .box {
@@ -22,25 +24,64 @@
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 500px;
+      max-width: 520px;
+    }
+
+    .brand-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #8b3148;
+      margin-bottom: 6px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #b26073;
+      margin-bottom: 25px;
     }
 
     h1 {
       color: #6b0f1a;
+      margin-bottom: 10px;
     }
 
-    a {
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn {
       display: inline-block;
-      margin-top: 20px;
-      color: white;
-      background: #6b0f1a;
       padding: 12px 20px;
       border-radius: 6px;
       text-decoration: none;
+      margin: 8px;
+      font-size: 14px;
     }
 
-    a:hover {
+    .btn-primary {
+      background: #6b0f1a;
+      color: white;
+    }
+
+    .btn-primary:hover {
       background: #8c1c2c;
+    }
+
+    .btn-secondary {
+      border: 1px solid #6b0f1a;
+      color: #6b0f1a;
+    }
+
+    .btn-secondary:hover {
+      background: #f3e9eb;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #777;
+      margin-top: 15px;
     }
   </style>
 </head>
@@ -48,11 +89,29 @@
 <body>
 
   <div class="box">
-    <h1>Thank you! 🎉</h1>
-    <p>Your request has been received.</p>
-    <p>I will contact you within 24 hours.</p>
 
-    <a href="/">Back to Home</a>
+    <div class="brand-name">Gloria Mayo</div>
+    <div class="brand-sub">SYSTEMS ENGINEER · DIGITAL SOLUTIONS</div>
+
+    <h1>Thank you! 🎉</h1>
+    <p>Your request has been received successfully.</p>
+
+    <p>I will personally contact you within 24 hours.</p>
+
+    <div>
+      <a href="https://wa.me/14376779018" class="btn btn-primary">
+        💬 Chat on WhatsApp
+      </a>
+
+      <a href="/" class="btn btn-secondary">
+        Back to Home
+      </a>
+    </div>
+
+    <div class="note">
+      Want faster response? Message me directly on WhatsApp.
+    </div>
+
   </div>
 
 </body>
