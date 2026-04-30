@@ -175,26 +175,46 @@
       .contact-list{grid-template-columns:1fr;}
       .fit-banner{grid-template-columns:1fr;}
     }
-    .whatsapp-float {
+   /* WHATSAPP FLOAT PRO */
+.whatsapp-float {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #25D366;
-  color: white;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
-  text-decoration: none;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
   z-index: 9999;
+  transition: all 0.3s ease;
 }
 
+/* Hover elegante */
 .whatsapp-float:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+}
+
+/* Animación suave (latido) */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.whatsapp-float {
+  animation: pulse 2.5s infinite;
 }
   </style>
 </head>
@@ -629,7 +649,9 @@
 </script>
 
 </body>
-<a href="https://wa.me/14376779018" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-  💬
+<a href="https://wa.me/14376779018" class="whatsapp-float" target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26">
+    <path fill="white" d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.885.754 5.593 2.066 7.942L0 32l7.863-2.063A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.21c-2.593 0-5.022-.675-7.133-1.854l-.51-.303-4.664 1.224 1.244-4.548-.332-.527A13.92 13.92 0 0 1 2.08 16.396C2.08 8.87 8.474 2.476 16 2.476c7.526 0 13.92 6.394 13.92 13.92 0 7.526-6.394 13.92-13.92 13.92zm7.743-10.41c-.423-.212-2.503-1.235-2.89-1.377-.388-.141-.67-.212-.953.212-.283.423-1.094 1.377-1.342 1.66-.247.283-.495.318-.918.106-.423-.212-1.788-.66-3.406-2.104-1.258-1.122-2.108-2.506-2.356-2.929-.247-.423-.026-.651.186-.863.19-.19.423-.495.635-.743.212-.247.283-.423.423-.706.141-.283.071-.53-.035-.743-.106-.212-.953-2.292-1.306-3.139-.343-.824-.693-.712-.953-.724l-.812-.014c-.283 0-.743.106-1.13.53-.388.423-1.483 1.447-1.483 3.53s1.518 4.095 1.73 4.377c.212.283 2.987 4.56 7.242 6.393 1.012.436 1.8.696 2.415.891 1.014.322 1.937.277 2.666.168.814-.121 2.503-1.022 2.855-2.011.353-.989.353-1.836.247-2.011-.106-.176-.388-.283-.812-.495z"/>
+  </svg>
 </a>
 </html>
