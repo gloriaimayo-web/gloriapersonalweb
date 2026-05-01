@@ -190,7 +190,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  z-index: 9999;
+  z-index: 9998;
   transition: all 0.3s ease;
   opacity: 0;
 visibility: hidden;
@@ -204,7 +204,11 @@ visibility: hidden;
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 16px 40px rgba(0,0,0,0.3);
 }
-
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
 /* Animación suave (latido) */
 @keyframes pulse {
   0% {
@@ -734,10 +738,6 @@ visibility: hidden;
     if (menu.classList.contains('open')) { menu.classList.remove('open'); btn.classList.remove('open'); }
   });
 </script>
-<a 
-  href="https://wa.me/14376779018?text=Hi%20Gloria%2C%20I%27d%20like%20to%20request%20a%20private%20demo%20for%20my%20business."
-  class="whatsapp-float"
-
 <!-- ASK AI BUTTON -->
 <div class="ask-ai-button" onclick="toggleChat()" aria-label="Ask Gloria AI Assistant">Ask AI</div>
 
