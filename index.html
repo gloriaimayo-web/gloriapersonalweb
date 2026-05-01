@@ -175,7 +175,8 @@
       .contact-list{grid-template-columns:1fr;}
       .fit-banner{grid-template-columns:1fr;}
     }
-   
+    .sub-hero{margin-top:12px;margin-bottom:18px;color:var(--accent);font-size:.95rem;font-weight:600;letter-spacing:.02em;}
+
     /* WHATSAPP FLOAT PRO */
 .whatsapp-float {
   position: fixed;
@@ -221,6 +222,84 @@ visibility: hidden;
 
 .whatsapp-float {
   animation: pulse 2.5s infinite;
+}
+/* BOTÓN */
+.ask-ai-button {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: #7a1e2c;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* PANEL */
+.ask-ai-chat {
+  position: fixed;
+  bottom: 80px;
+  left: 24px;
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.chat-header {
+  background: #7a1e2c;
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.chat-body {
+  padding: 12px;
+  height: 260px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.bot {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.user {
+  background: #7a1e2c;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+.chat-input input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
+
+.chat-input button {
+  background: #7a1e2c;
+  color: white;
+  border: none;
+  padding: 10px 14px;
 }
   </style>
 </head>
@@ -289,6 +368,8 @@ visibility: hidden;
       </div>
       <h1 class="lang-es lang-hidden">Tu Negocio en Piloto Automático — con Elegancia.</h1>
       <h1 class="lang-en">Your Business, Running on Autopilot — Elegantly.</h1>
+      <p class="sub-hero lang-en">Enterprise CRM logic, simplified for local service businesses.</p>
+      <p class="sub-hero lang-es lang-hidden">Lógica de CRM empresarial, simplificada para negocios de servicios locales.</p>
       <p class="lead lang-es lang-hidden">Soy Ingeniera de Sistemas y ayudo a negocios de servicios en Canadá a escalar mediante <strong>Ecosistemas de Reserva Autónomos</strong> — asistentes digitales inteligentes que automatizan tu agenda, reducen las inasistencias y fidelizan clientes las 24 horas, con la precisión de la ingeniería y la elegancia de una marca de lujo.</p>
       <p class="lead lang-en">I'm a Systems Engineer helping service businesses in Canada scale through <strong>Autonomous Booking Ecosystems</strong> — intelligent digital assistants that automate your schedule, reduce no-shows and build client loyalty 24/7, with the precision of engineering and the elegance of a luxury brand.</p>
       <div class="cta-row">
@@ -656,13 +737,42 @@ visibility: hidden;
 <a 
   href="https://wa.me/14376779018?text=Hi%20Gloria%2C%20I%27d%20like%20to%20request%20a%20private%20demo%20for%20my%20business."
   class="whatsapp-float"
-  target="_blank"
-  aria-label="Chat with Gloria on WhatsApp">
 
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26">
+<!-- ASK AI BUTTON -->
+<div class="ask-ai-button" onclick="toggleChat()" aria-label="Ask Gloria AI Assistant">Ask AI</div>
+
+<!-- WHATSAPP FLOAT -->
+<a 
+  href="https://wa.me/14376779018?text=Hi%20Gloria%2C%20I%27d%20like%20to%20request%20a%20private%20demo%20for%20my%20business."
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat with Gloria on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
     <path fill="white" d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.885.754 5.593 2.066 7.942L0 32l7.863-2.063A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.21c-2.593 0-5.022-.675-7.133-1.854l-.51-.303-4.664 1.224 1.244-4.548-.332-.527A13.92 13.92 0 0 1 2.08 16.396C2.08 8.87 8.474 2.476 16 2.476c7.526 0 13.92 6.394 13.92 13.92 0 7.526-6.394 13.92-13.92 13.92zm7.743-10.41c-.423-.212-2.503-1.235-2.89-1.377-.388-.141-.67-.212-.953.212-.283.423-1.094 1.377-1.342 1.66-.247.283-.495.318-.918.106-.423-.212-1.788-.66-3.406-2.104-1.258-1.122-2.108-2.506-2.356-2.929-.247-.423-.026-.651.186-.863.19-.19.423-.495.635-.743.212-.247.283-.423.423-.706.141-.283.071-.53-.035-.743-.106-.212-.953-2.292-1.306-3.139-.343-.824-.693-.712-.953-.724l-.812-.014c-.283 0-.743.106-1.13.53-.388.423-1.483 1.447-1.483 3.53s1.518 4.095 1.73 4.377c.212.283 2.987 4.56 7.242 6.393 1.012.436 1.8.696 2.415.891 1.014.322 1.937.277 2.666.168.814-.121 2.503-1.022 2.855-2.011.353-.989.353-1.836.247-2.011-.106-.176-.388-.283-.812-.495z"/>
   </svg>
 </a>
+
+<!-- ASK AI CHAT PANEL -->
+<div class="ask-ai-chat" id="chatBox">
+  <div class="chat-header">
+    Gloria AI Assistant 🤖
+    <span onclick="toggleChat()" style="cursor:pointer;">✕</span>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot">
+      Hi! I’m Gloria’s Digital Solutions Assistant 👋<br><br>
+      I help service businesses organize bookings, automate follow-ups and create a more professional client experience.<br><br>
+      What type of business do you run?
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ask me anything..." onkeydown="if(event.key === 'Enter') sendMessage();" />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
 
 <script>
   setTimeout(function () {
@@ -671,7 +781,55 @@ visibility: hidden;
       whatsappButton.classList.add('show');
     }
   }, 5000);
-</script>
-</body>
 
+  function toggleChat() {
+    const chat = document.getElementById('chatBox');
+    if (!chat) return;
+    chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('userInput');
+    const chatBody = document.getElementById('chatBody');
+    if (!input || !chatBody) return;
+
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    chatBody.innerHTML += `<div class="user">${escapeHtml(userText)}</div>`;
+
+    const text = userText.toLowerCase();
+    let response = '';
+
+    if (text.includes('price') || text.includes('pricing') || text.includes('cost') || text.includes('how much')) {
+      response = 'Pricing depends on your business needs, booking flow and level of automation. The best next step is to request a private demo so Gloria can review your business and recommend the right setup. <br><br><a href="/demo.html">Request a Private Demo</a>';
+    } else if (text.includes('system') || text.includes('crm') || text.includes('dynamics') || text.includes('microsoft')) {
+      response = 'The Autonomous Booking Ecosystem is inspired by enterprise CRM concepts, similar to platforms like Microsoft Dynamics 365: client management, appointment tracking, workflow organization and follow-up logic — simplified for local service businesses.';
+    } else if (text.includes('demo') || text.includes('appointment') || text.includes('book')) {
+      response = 'Yes. You can request your private demo here:<br><a href="/demo.html">Request Demo</a>';
+    } else if (text.includes('salon') || text.includes('barber') || text.includes('spa') || text.includes('beauty')) {
+      response = 'Beauty and wellness businesses benefit a lot from structured booking, automated reminders and client follow-up. Are you currently managing appointments through messages or do you use a system?';
+    } else if (text.includes('mechanic') || text.includes('repair') || text.includes('detailing') || text.includes('technical')) {
+      response = 'Service-based technical businesses often lose time with unorganized scheduling. This system can help organize requests, bookings and follow-ups. Do your clients usually contact you by phone or WhatsApp?';
+    } else if (text.includes('trainer') || text.includes('coach') || text.includes('fitness')) {
+      response = 'Training and coaching businesses grow faster with automated scheduling and follow-ups. Do you currently have a booking page or do clients message you directly?';
+    } else if (text.includes('what') || text.includes('include')) {
+      response = 'It can include a professional website, booking flow, client information, reminders, follow-up and a more organized daily workflow — adapted to your business.';
+    } else {
+      response = 'I can help you understand how an Autonomous Booking Ecosystem would work for your business. It is ideal for salons, barbershops, wellness brands, personal trainers, clinics, tailoring businesses, mechanics, repair services and any business that works by appointment. Would you like to request a private demo? <br><br><a href="/demo.html">Request Demo</a>';
+    }
+
+    chatBody.innerHTML += `<div class="bot">${response}</div>`;
+    chatBody.scrollTop = chatBody.scrollHeight;
+    input.value = '';
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+</script>
+
+</body>
 </html>
