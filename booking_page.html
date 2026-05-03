@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Book Appointment | {{ business.name }}</title>
-    <link rel="icon" href="{% static 'website/images/logo.png' %}">
+    <link rel="icon" href="{% static 'website/images/logo.png' %}" onerror="this.remove()">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,14 +61,6 @@
             gap:18px;
             text-decoration:none;
             color:inherit;
-        }
-
-        .brand img{
-            width:120px;
-            height:120px;
-            object-fit:cover;
-            border-radius:22px;
-            box-shadow:0 12px 24px rgba(0,0,0,.10);
         }
 
         .brand-title{
@@ -408,7 +400,6 @@
     <nav class="top-nav">
         <div class="container nav-inner">
             <a class="brand" href="/">
-                <img src="{% static 'website/images/logo.png' %}" alt="{{ business.name }} logo">
                 <h1 class="brand-title">{{ business.name }}</h1>
             </a>
 
@@ -465,7 +456,7 @@
                     </p>
 
                     <div class="form-actions-top">
-                        <a class="btn btn-whatsapp" href="https://wa.me/{{ business.owner_phone|cut:"+"|cut:"-"|cut:" " }}" target="_blank" rel="noopener">
+                        <a class="btn btn-whatsapp" href="https://wa.me/14376779018" target="_blank" rel="noopener">
                             Message on WhatsApp
                         </a>
                         <a class="btn btn-primary" href="/#services">View Services</a>
