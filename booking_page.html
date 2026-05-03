@@ -1,0 +1,704 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Appointment | {{ business.name }}</title>
+    <link rel="icon" href="{% static 'website/images/logo.png' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#f3e4e6;
+            --panel:rgba(255,255,255,.82);
+            --text:#2a1f22;
+            --brand:#7a2030;
+            --brand-2:#8f4d5b;
+            --line:rgba(0,0,0,.08);
+            --shadow:0 12px 28px rgba(0,0,0,.08);
+            --radius:24px;
+            --ok-bg:#f4fbf7;
+            --ok-line:#cfe9dc;
+            --ok-text:#2e7d5b;
+            --wa:#25D366;
+        }
+
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+            margin:0;
+            font-family:'Inter',sans-serif;
+            color:var(--text);
+            background:var(--bg);
+        }
+
+        .container{
+            width:min(1100px, calc(100% - 32px));
+            margin:0 auto;
+        }
+
+        .top-nav{
+            background:rgba(255,255,255,.78);
+            backdrop-filter: blur(8px);
+            border-bottom:1px solid var(--line);
+        }
+
+        .nav-inner{
+            min-height:108px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:18px;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            text-decoration:none;
+            color:inherit;
+        }
+
+        .brand img{
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:22px;
+            box-shadow:0 12px 24px rgba(0,0,0,.10);
+        }
+
+        .brand-title{
+            margin:0;
+            font-family:'Great Vibes', cursive;
+            font-size:58px;
+            color:#6F1D2A;
+            font-weight:400;
+            line-height:1.1;
+            letter-spacing:1px;
+        }
+
+        .nav-links{
+            list-style:none;
+            display:flex;
+            gap:28px;
+            margin:0;
+            padding:0;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:#43363a;
+            font-weight:700;
+            font-size:16px;
+        }
+
+        .hero-spacer{
+            height:40px;
+        }
+
+        .page-card{
+            background:linear-gradient(135deg, #8d4b5d 0%, #6f415c 100%);
+            color:#fff;
+            border-radius:30px;
+            box-shadow:var(--shadow);
+            padding:42px 28px;
+            text-align:center;
+            margin:32px auto 24px;
+        }
+
+        .page-card h1{
+            margin:0 0 12px;
+            font-family:'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight:600;
+            line-height:1.15;
+            letter-spacing:.3px;
+        }
+
+        .page-card p{
+            margin:0 auto;
+            max-width:820px;
+            font-size:18px;
+            line-height:1.55;
+        }
+
+        .booking-wrap{
+            margin:26px auto 54px;
+        }
+
+        .booking-panel{
+            background:var(--panel);
+            border:1px solid rgba(0,0,0,.05);
+            border-radius:28px;
+            box-shadow:var(--shadow);
+            padding:26px;
+        }
+
+        .booking-header{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .booking-header h2{
+            margin:0 0 8px;
+            color:var(--brand);
+            font-size:36px;
+        }
+
+        .booking-header p{
+            margin:0;
+            color:rgba(42,31,34,.78);
+            font-size:17px;
+            line-height:1.55;
+        }
+
+        .booking-grid{
+            display:grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap:22px;
+        }
+
+        .info-box,
+        .form-box{
+            background:rgba(255,255,255,.68);
+            border:1px solid rgba(0,0,0,.06);
+            border-radius:22px;
+            padding:22px;
+        }
+
+        .info-box h3,
+        .form-box h3{
+            margin:0 0 16px;
+            color:var(--brand);
+            font-size:18px;
+        }
+
+        .contact-line{
+            margin:0 0 14px;
+            line-height:1.6;
+            color:rgba(42,31,34,.88);
+            font-size:17px;
+        }
+
+        .contact-line a{
+            color:var(--brand);
+            text-decoration:none;
+            font-weight:800;
+        }
+
+        .note{
+            margin:10px 0 0;
+            color:rgba(42,31,34,.72);
+            font-size:15px;
+        }
+
+        .form-actions-top{
+            margin-top:18px;
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            min-height:54px;
+            padding:0 22px;
+            border-radius:18px;
+            border:2px solid rgba(122,32,48,.28);
+            text-decoration:none;
+            color:var(--brand);
+            background:transparent;
+            font-weight:800;
+            font-size:16px;
+            white-space:nowrap;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            filter:brightness(.98);
+        }
+
+        .btn-primary{
+            background:#f4ecee;
+        }
+
+        .btn-whatsapp{
+            background:var(--wa);
+            color:#fff;
+            border-color:transparent;
+        }
+
+        form{
+            display:grid;
+            gap:12px;
+            margin-top:8px;
+        }
+
+        input, select, textarea{
+            width:100%;
+            border:1px solid rgba(0,0,0,.10);
+            border-radius:14px;
+            padding:14px 14px;
+            font:inherit;
+            color:inherit;
+            background:#fff;
+        }
+
+        textarea{
+            min-height:130px;
+            resize:vertical;
+        }
+
+        .submit-btn{
+            width:100%;
+            min-height:56px;
+            border:none;
+            border-radius:16px;
+            background:#f0dfe3;
+            color:var(--brand);
+            font-weight:800;
+            font-size:18px;
+            cursor:pointer;
+            border:2px solid rgba(122,32,48,.18);
+        }
+
+        .submit-btn:hover{
+            filter:brightness(.98);
+        }
+
+        .submit-btn:disabled{
+            opacity:0.5;
+            cursor:not-allowed;
+        }
+
+        #bookingSuccess{
+            display:none;
+            margin-top:14px;
+        }
+
+        .success-card{
+            background:var(--ok-bg);
+            border:1px solid var(--ok-line);
+            border-radius:20px;
+            padding:26px 22px;
+            text-align:center;
+        }
+
+        .success-card h3{
+            margin:0 0 12px;
+            color:var(--ok-text);
+            font-size:22px;
+        }
+
+        .success-card p{
+            margin:0 0 14px;
+            line-height:1.6;
+            font-size:16px;
+        }
+
+        .success-actions{
+            margin-top:16px;
+            display:flex;
+            gap:12px;
+            justify-content:center;
+            flex-wrap:wrap;
+            align-items:center;
+        }
+
+        /* ── Slots UI ─────────────────────────────────── */
+        .slots-wrapper{
+            display:none;  /* hidden until date+service are selected */
+        }
+
+        .slots-label{
+            font-weight:700;
+            font-size:14px;
+            color:var(--brand);
+            margin-bottom:4px;
+        }
+
+        .slots-loading{
+            display:none;
+            color:#888;
+            font-size:14px;
+            padding:8px 0;
+        }
+
+        .slots-empty{
+            display:none;
+            background:#fff3f5;
+            border:1px solid #f4c0cb;
+            border-radius:12px;
+            padding:12px 16px;
+            font-size:14px;
+            color:#a0243a;
+        }
+
+        .slots-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap:8px;
+        }
+
+        .slot-btn{
+            background:#fff;
+            border:2px solid rgba(122,32,48,.2);
+            border-radius:12px;
+            padding:10px 6px;
+            text-align:center;
+            font-weight:700;
+            font-size:14px;
+            color:var(--brand);
+            cursor:pointer;
+            transition:all .15s;
+        }
+
+        .slot-btn:hover{
+            background:#f4ecee;
+        }
+
+        .slot-btn.selected{
+            background:var(--brand);
+            color:#fff;
+            border-color:var(--brand);
+        }
+
+        footer{
+            padding:28px 0 46px;
+            text-align:center;
+            color:#6b5b61;
+            font-size:14px;
+        }
+
+        @media (max-width: 900px){
+            .nav-inner{
+                flex-direction:column;
+                padding:16px 0;
+            }
+
+            .nav-links{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .booking-grid{
+                grid-template-columns:1fr;
+            }
+
+            .brand{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .brand-title{
+                font-size:46px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <a class="brand" href="/">
+                <img src="{% static 'website/images/logo.png' %}" alt="{{ business.name }} logo">
+                <h1 class="brand-title">{{ business.name }}</h1>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#contact">Contact & Booking</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-spacer"></div>
+
+    <main class="container booking-wrap">
+
+        <section class="page-card">
+            <h1>Book Your Appointment</h1>
+            <p>
+                Choose your service and date — only available time slots will appear.
+                We'll confirm your appointment shortly via WhatsApp.
+            </p>
+        </section>
+
+        <section class="booking-panel">
+            <div class="booking-header">
+                <h2>Online Booking</h2>
+                <p>
+                    Select a service and date, then pick from the available time slots below.<br>
+                    We will confirm your appointment via <strong>WhatsApp</strong>.
+                </p>
+            </div>
+
+            <div class="booking-grid">
+
+                <!-- Left info -->
+                <div class="info-box">
+                    <h3>Contact</h3>
+
+                    <p class="contact-line"><strong>Location:</strong> {{ business.city }}, {{ business.state_province }}</p>
+
+                    <p class="contact-line">
+                        <strong>Phone / WhatsApp:</strong>
+                        <a href="tel:{{ business.owner_phone }}">{{ business.owner_phone }}</a>
+                    </p>
+
+                    <p class="contact-line">
+                        <strong>Email:</strong>
+                        <a href="mailto:contact@glservicesgroup.com">contact@glservicesgroup.com</a>
+                    </p>
+
+                    <p class="note">
+                        🕘 {{ business.name }} — Powered by Appointly<br>
+                        Slots are shown in real time — only open times appear.
+                    </p>
+
+                    <div class="form-actions-top">
+                        <a class="btn btn-whatsapp" href="https://wa.me/{{ business.owner_phone|cut:"+"|cut:"-"|cut:" " }}" target="_blank" rel="noopener">
+                            Message on WhatsApp
+                        </a>
+                        <a class="btn btn-primary" href="/#services">View Services</a>
+                    </div>
+                </div>
+
+                <!-- Right form -->
+                <div class="form-box">
+                    <h3>Request an Appointment</h3>
+
+                    <form id="bookingPageForm" action="/book/home-sewing/book/" method="POST">
+                        {% csrf_token %}
+
+                        <!-- STEP 1: Service -->
+                        <select name="service_id" id="bookingService" required>
+                            <option value="" selected disabled>① Select a service</option>
+                            {% for service in services %}
+                                <option value="{{ service.id }}" data-duration="{{ service.duration_minutes }}">
+                                    {{ service.name }} — ${{ service.price }} ({{ service.duration_minutes }} min)
+                                </option>
+                            {% endfor %}
+                        </select>
+
+                        <!-- STEP 2: Date -->
+                        <input type="date" name="date" id="bookingDate" required placeholder="② Pick a date">
+
+                        <!-- STEP 3: Available slots (shown after service + date selected) -->
+                        <div class="slots-wrapper" id="slotsWrapper">
+                            <div class="slots-label">③ Available times</div>
+
+                            <div class="slots-loading" id="slotsLoading">
+                                ⏳ Checking availability...
+                            </div>
+
+                            <div class="slots-empty" id="slotsEmpty">
+                                😔 No available times for this date. Please try another day.
+                            </div>
+
+                            <div class="slots-grid" id="slotsGrid"></div>
+
+                            <!-- Hidden input that stores the chosen time slot -->
+                            <input type="hidden" name="time" id="bookingTime" required>
+                        </div>
+
+                        <!-- Customer info -->
+                        <input type="text" name="first_name" id="bookingFirstName" placeholder="Your full name" required>
+                        <input type="email" name="email" placeholder="Your email">
+                        <input type="text" name="phone" placeholder="Phone number">
+                        <textarea name="notes" placeholder="Details about the garment, measurements, or special requests."></textarea>
+
+                        <!-- Anti-spam protection -->
+                        <input type="hidden" name="website" value="">
+                        <input type="hidden" name="form_timestamp" value="{{ form_timestamp }}">
+                        <input type="hidden" name="last_name" value="">
+
+                        <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                            Confirm Appointment
+                        </button>
+                    </form>
+
+                    <div id="bookingSuccess">
+                        <div class="success-card">
+                            <h3>✔ Thank you for contacting {{ business.name }}!</h3>
+
+                            <p>
+                                We have received your appointment request successfully.<br>
+                                Our team will contact you shortly via
+                                <strong>WhatsApp</strong> (usually within a few hours).
+                            </p>
+
+                            <p>
+                                If you prefer a faster response, you can contact us directly.
+                            </p>
+
+                            <div class="success-actions">
+                                <a href="/" class="btn btn-primary">Back to Home</a>
+                                <a href="/#services" class="btn btn-primary">View Services</a>
+                                <a href="https://wa.me/14376779018" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    Message on WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 {{ business.name }}. All rights reserved.
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // ── Elements ────────────────────────────────────
+        const serviceSelect  = document.getElementById("bookingService");
+        const dateInput      = document.getElementById("bookingDate");
+        const slotsWrapper   = document.getElementById("slotsWrapper");
+        const slotsLoading   = document.getElementById("slotsLoading");
+        const slotsEmpty     = document.getElementById("slotsEmpty");
+        const slotsGrid      = document.getElementById("slotsGrid");
+        const timeHidden     = document.getElementById("bookingTime");
+        const submitBtn      = document.getElementById("submitBtn");
+        const bookingForm    = document.getElementById("bookingPageForm");
+        const bookingSuccess = document.getElementById("bookingSuccess");
+
+        // Set minimum date = today (no past dates)
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+
+        // ── Load slots when service OR date changes ────
+        function loadSlots() {
+            const serviceId = serviceSelect.value;
+            const date      = dateInput.value;
+
+            // Reset slot selection
+            timeHidden.value = '';
+            submitBtn.disabled = true;
+
+            if (!serviceId || !date) {
+                slotsWrapper.style.display = 'none';
+                return;
+            }
+
+            // Show the slots section, show loading
+            slotsWrapper.style.display = 'block';
+            slotsLoading.style.display  = 'block';
+            slotsEmpty.style.display    = 'none';
+            slotsGrid.innerHTML         = '';
+
+            // Call the backend API — endpoint already exists!
+            fetch(`/book/home-sewing/slots/?service_id=${serviceId}&date=${date}`)
+                .then(r => r.json())
+                .then(data => {
+                    slotsLoading.style.display = 'none';
+
+                    if (!data.slots || data.slots.length === 0) {
+                        slotsEmpty.style.display = 'block';
+                        return;
+                    }
+
+                    // Render slot buttons
+                    data.slots.forEach(slot => {
+                        const btn = document.createElement('button');
+                        btn.type        = 'button';
+                        btn.className   = 'slot-btn';
+                        btn.textContent = slot.display;   // e.g. "09:00 AM"
+                        btn.dataset.time = slot.time;     // e.g. "09:00"
+
+                        btn.addEventListener('click', () => {
+                            // Deselect all, select clicked
+                            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+                            btn.classList.add('selected');
+                            timeHidden.value    = slot.time;
+                            submitBtn.disabled  = false;
+                        });
+
+                        slotsGrid.appendChild(btn);
+                    });
+                })
+                .catch(err => {
+                    slotsLoading.style.display = 'none';
+                    slotsEmpty.style.display   = 'block';
+                    slotsEmpty.textContent     = '⚠ Connection error. Please try again.';
+                    console.error('Slots error:', err);
+                });
+        }
+
+        serviceSelect.addEventListener('change', loadSlots);
+        dateInput.addEventListener('change', loadSlots);
+
+        // ── Submit form ─────────────────────────────────
+        bookingForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            if (!timeHidden.value) {
+                alert('Please select an available time slot.');
+                return;
+            }
+
+            const formData = new FormData(bookingForm);
+            const jsonData = {
+                first_name:   formData.get('first_name') || '',
+                last_name:    '',
+                email:        formData.get('email') || '',
+                phone:        formData.get('phone') || '',
+                date:         formData.get('date') || '',
+                time:         formData.get('time') || '',
+                service_id:   formData.get('service_id') || '',
+                notes:        formData.get('notes') || '',
+                notification_preference: 'email',
+                website:      formData.get('website') || '',
+                form_timestamp: formData.get('form_timestamp') || ''
+            };
+
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
+
+            submitBtn.disabled   = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch("/book/home-sewing/book/", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify(jsonData)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    bookingForm.style.display   = "none";
+                    bookingSuccess.style.display = "block";
+                    bookingSuccess.scrollIntoView({ behavior: "smooth", block: "start" });
+                } else {
+                    alert(data.error || "Something went wrong. Please try again.");
+                    submitBtn.disabled   = false;
+                    submitBtn.textContent = 'Confirm Appointment';
+                }
+            } catch (error) {
+                alert("There was a problem sending your request. Please try again.");
+                submitBtn.disabled   = false;
+                submitBtn.textContent = 'Confirm Appointment';
+                console.error(error);
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
