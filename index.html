@@ -377,12 +377,12 @@ visibility: hidden;
       </div>
 
       <!-- Títulos: Más directos al beneficio -->
-      <h1 class="lang-es lang-hidden">Automatiza Citas. <br><span style="color:var(--primary)">Reduce Inasistencias. Crece.</span></h1>
-      <h1 class="lang-en">Automate Bookings. <br><span style="color:var(--primary)">Reduce No-Shows. Grow.</span></h1>
+      <h1 class="lang-es lang-hidden">Automatiza Citas. <br><span style="color:var(--accent)">Reduce Inasistencias. Crece.</span></h1>
+      <h1 class="lang-en">Automate Bookings. <br><span style="color:var(--accent)">Reduce No-Shows. Grow.</span></h1>
 
       <!-- Sub-hero: El valor del tiempo -->
-      <p class="sub-hero lang-en">Booking & CRM systems for salons, tailors, barbershops and local service businesses.</p>
-      <p class="sub-hero lang-es lang-hidden">Sistemas de reservas y CRM para salones, costureras, barberías y negocios locales.</p>
+      <p class="sub-hero lang-en">Stop losing clients and automate your bookings with a system designed for local service businesses.</p>
+      <p class="sub-hero lang-es lang-hidden">Deja de perder clientes y automatiza tus reservas con un sistema diseñado para negocios locales de servicios.</p>
 
       <!-- Lead: Menos "soy ingeniera", más "esto hago por ti" -->
       <p class="lead lang-es lang-hidden">Construyo <strong>sistemas completos de reservas y CRM</strong> que automatizan tus citas, reducen inasistencias y te ahorran horas cada semana. Tu negocio se organiza mejor sin depender de llamadas y mensajes manuales.</p>
@@ -721,6 +721,14 @@ visibility: hidden;
       <p class="lang-en" style="color:var(--muted); font-size:.9rem; margin-top:10px;">
         Most businesses get their system ready in less than 3 days.
       </p>
+
+      <p class="lang-es lang-hidden" style="color:var(--accent); font-size:.9rem; font-weight:600; margin-top:10px;">
+        Ya estoy ayudando a negocios locales a organizar reservas y reducir inasistencias.
+      </p>
+
+      <p class="lang-en" style="color:var(--accent); font-size:.9rem; font-weight:600; margin-top:10px;">
+        Already helping local businesses organize bookings and reduce no-shows.
+      </p>
     </div>
 
     <div class="services-grid">
@@ -763,7 +771,7 @@ visibility: hidden;
         <p><strong>$180 CAD</strong></p>
 
         <p style="font-size:.85rem; color:var(--accent); font-weight:600;">
-          Best value for growing businesses
+          Most chosen by growing businesses
         </p>
 
         <p class="lang-es lang-hidden">
@@ -820,12 +828,12 @@ visibility: hidden;
           We review your business and I recommend the best setup.
         </p>
 
-        <p style="margin-top:14px;">
-          <a href="/demo.html" class="btn btn-primary" style="padding:10px 14px;font-size:.82rem;">
-            <span class="lang-es lang-hidden">Solicitar demo</span>
-            <span class="lang-en">Request Demo</span>
-          </a>
-        </p>
+        <div style="margin-top:14px;">
+  <a href="/demo.html" class="btn btn-primary" style="padding:10px 14px;font-size:.82rem;">
+    <span class="lang-es lang-hidden">Iniciar mi sistema de reservas</span>
+    <span class="lang-en">Start My Booking System</span>
+  </a>
+</div>
       </article>
 
     </div>
@@ -836,16 +844,16 @@ visibility: hidden;
 <section>
   <div class="container fit-banner">
     <div>
-      <h3 class="lang-es lang-hidden">Especialmente valioso para salones, barberías y negocios de servicios</h3>
-      <h3 class="lang-en">Especially valuable for salons, barbershops and service businesses</h3>
-      <p class="lang-es lang-hidden">Este sector compra confianza visual, facilidad de contacto y orden. Tu web debe transmitir exactamente eso desde el primer segundo.</p>
-      <p class="lang-en">This sector buys visual trust, ease of contact and structure. Your website must convey exactly that from the very first second.</p>
+      <h3 class="lang-es lang-hidden">Creado para negocios de servicios que quieren dejar de perder clientes</h3>
+      <h3 class="lang-en">Built for service businesses that want to stop losing clients</h3>
+      <p class="lang-es lang-hidden">Creado específicamente para salones, barberías y negocios de servicios que quieren dejar de perder clientes, organizar reservas y trabajar con más eficiencia.</p>
+      <p class="lang-en">Built specifically for salons, barbershops and service businesses that want to stop losing clients, organize bookings and run more efficiently.</p>
       <div class="fit-tags">
         <span>💇‍♀️ Beauty salons</span><span>💈 Barbershops</span><span>🌿 Wellness brands</span><span>🏪 Local businesses</span><span>👩‍💻 Personal brands</span>
       </div>
     </div>
     <a href="#contacto" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.22);white-space:nowrap;">
-      <span class="lang-es lang-hidden">Hablemos</span><span class="lang-en">Let's talk</span>
+      <span class="lang-es lang-hidden">Iniciar mi sistema</span><span class="lang-en">Start My System</span>
     </a>
   </div>
 </section>
@@ -1060,7 +1068,7 @@ visibility: hidden;
     } else if (text.includes('price') || text.includes('pricing') || text.includes('cost') || text.includes('how much')) {
       response = 'Here are the current setup options:<br><br><strong>Basic Setup:</strong> $120 CAD<br><strong>Advanced Setup:</strong> $180 CAD<br><strong>Monthly Support:</strong> $50 CAD/month<br><br><a href="#pricing">View Pricing Plans</a>';
     } else if (text.includes('demo') || text.includes('appointment') || text.includes('book')) {
-      response = 'You can view the live demo here:<br><a href="https://appointly.gloriamayo.com/book/demo-beauty-salon/" target="_blank" rel="noopener">View Live Demo</a><br><br>Or request a private demo here:<br><a href="/demo.html">Request Demo</a>';
+      response = 'You can view the live demo here:<br><a href="https://appointly.gloriamayo.com/book/demo-beauty-salon/" target="_blank" rel="noopener">View Live Demo</a><br><br>Or request a private demo here:<br><a href="/demo.html">Start My Booking System</a>';
     } else if (text.includes('salon') || text.includes('barber') || text.includes('spa') || text.includes('beauty')) {
       response = 'Beauty and wellness businesses benefit from online booking, reminders, client history and follow-up. Are you currently managing appointments through messages or do you use a system?';
     } else if (text.includes('tailor') || text.includes('sewing') || text.includes('alteration') || text.includes('dress')) {
