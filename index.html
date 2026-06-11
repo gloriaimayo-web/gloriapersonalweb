@@ -393,7 +393,7 @@
 
       <div class="cta-row">
         <!-- El botón principal ahora es la solución de citas -->
-        <a class="btn btn-primary" href="https://appointly.gloriamayo.com/book/smart-local-services-demo/" target="_blank" rel="noopener">
+        <a class="btn btn-primary" href="https://appointsuite.tech/book/smart-local-services-demo/" target="_blank" rel="noopener">
     <span class="lang-es lang-hidden">Probar experiencia de reserva</span>
     <span class="lang-en">Try a Real Booking Experience</span>
 </a>
@@ -928,7 +928,7 @@
     Complete booking and CRM system for local businesses. Your clients book online, you see appointments organized, and manual calls are reduced.
   </p>
 
-  <a href="https://appointly.gloriamayo.com/book/smart-local-services-demo/" target="_blank" rel="noopener">
+  <a href="https://appointsuite.tech/book/smart-local-services-demo/" target="_blank" rel="noopener">
     <span class="lang-es lang-hidden">Probar experiencia de reserva</span>
     <span class="lang-en">Try a Real Booking Experience</span> ↗
   </a>
@@ -1125,7 +1125,7 @@
     } else if (text.includes('price') || text.includes('pricing') || text.includes('cost') || text.includes('how much')) {
       response = 'Here are the current setup options:<br><br><strong>Basic Setup:</strong> $120 CAD<br><strong>Advanced Setup:</strong> $180 CAD<br><strong>Monthly Support:</strong> $50 CAD/month<br><br><a href="#pricing">View Pricing Plans</a>';
     } else if (text.includes('demo') || text.includes('appointment') || text.includes('book')) {
-      response = 'You can view the live demo here:<br><a href="https://appointly.gloriamayo.com/book/demo-beauty-salon/" target="_blank" rel="noopener">View Live Demo</a><br><br>Or request a private demo here:<br><a href="/demo.html">Start My Booking System</a>';
+      response = 'You can view the live demo here:<br><a href="https://appointsuite.tech/book/demo-beauty-salon/" target="_blank" rel="noopener">View Live Demo</a><br><br>Or request a private demo here:<br><a href="/demo.html">Start My Booking System</a>';
     } else if (text.includes('salon') || text.includes('barber') || text.includes('spa') || text.includes('beauty')) {
       response = 'Beauty and wellness businesses benefit from online booking, reminders, client history and follow-up. Are you currently managing appointments through messages or do you use a system?';
     } else if (text.includes('tailor') || text.includes('sewing') || text.includes('alteration') || text.includes('dress')) {
@@ -1176,7 +1176,7 @@
     btn.style.opacity = '0.7';
 
     try {
-      await fetch('https://appointly.gloriamayo.com/api/demo-request/', {
+      await fetch('https://appointsuite.tech/api/demo-request/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
