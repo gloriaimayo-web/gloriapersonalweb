@@ -1,978 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gloria Mayo | Booking & CRM Systems for Local Businesses</title>
-  <meta name="description" content="Booking and CRM systems for salons, tailors, barbershops and local service businesses in Vaughan, Ontario. Automated appointments, reminders and digital client management." />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:#fbf7f7; --surface:#fffafb; --surface-2:#f7eded; --surface-3:#f2e6e8;
-      --text:#4a2430; --muted:#7d5a63; --line:#e7cfd4;
-      --accent:#8b3148; --accent-2:#6f2136; --accent-soft:#f5dfe4;
-      --shadow:0 16px 40px rgba(111,33,54,0.10);
-      --radius-xl:28px; --radius-lg:20px; --radius-md:14px; --max:1180px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#fffdfd 0%,var(--bg) 100%);color:var(--text);}
-    img{max-width:100%;display:block;}
-    a{color:inherit;text-decoration:none;}
-    .container{width:min(calc(100% - 32px),var(--max));margin:0 auto;}
-    .lang-hidden{display:none!important;}
-
-    /* TOPBAR */
-    .topbar{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:rgba(255,251,252,0.92);border-bottom:1px solid rgba(231,207,212,0.7);}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px;}
-    .brand{display:flex;flex-direction:column;gap:3px;}
-    .brand-script{font-family:"Great Vibes",cursive;font-size:3rem;line-height:0.92;font-weight:400;color:var(--accent);letter-spacing:0.02em;}
-    .brand-sub{font-size:0.73rem;letter-spacing:0.3em;text-transform:uppercase;color:#b26073;}
-    .menu{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:flex-end;}
-    .menu a{font-size:0.9rem;color:var(--muted);transition:color .2s;}
-    .menu a:hover{color:var(--accent);}
-    .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);}
-    .lang span{width:38px;height:32px;display:grid;place-items:center;border-radius:999px;font-size:0.85rem;color:var(--muted);cursor:pointer;transition:all .2s;}
-    .lang .active{background:var(--accent);color:white;}
-    .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;background:none;border:none;}
-    .h-line{display:block;width:22px;height:2px;background:var(--accent);border-radius:2px;transition:all .3s;}
-    .hamburger.open .h-line:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-    .hamburger.open .h-line:nth-child(2){opacity:0;}
-    .hamburger.open .h-line:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-    #mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--line);background:rgba(255,251,252,0.98);padding:8px 0 16px;}
-    #mobile-menu.open{display:flex;}
-    #mobile-menu a{display:block;padding:12px 20px;font-size:0.95rem;font-weight:500;color:var(--text);border-bottom:1px solid #fbeaed;transition:color .2s;}
-    #mobile-menu a:hover{color:var(--accent);}
-    #mobile-menu a:last-child{border-bottom:none;}
-
-    /* HERO */
-    .hero{padding:52px 0 28px;}
-    .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:36px;align-items:center;}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:999px;font-size:0.88rem;}
-    h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2.8rem,6vw,5rem);line-height:0.95;margin:16px 0;letter-spacing:-0.04em;font-weight:600;color:var(--accent-2);max-width:12ch;}
-    .lead{font-size:1.08rem;line-height:1.9;color:var(--muted);max-width:62ch;}
-    .hero strong{color:var(--text);}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:600;font-size:.93rem;transition:transform .2s,box-shadow .2s;border:1px solid transparent;cursor:pointer;}
-    .btn:hover{transform:translateY(-2px);}
-    .btn-primary{background:linear-gradient(135deg,var(--accent-2),var(--accent));color:white;box-shadow:var(--shadow);}
-    .btn-secondary{background:var(--surface);color:var(--accent);border-color:var(--line);}
-    .hero-card{background:linear-gradient(180deg,var(--surface) 0%,#fff 100%);border:1px solid var(--line);border-radius:var(--radius-xl);padding:20px;box-shadow:var(--shadow);}
-    .portrait{aspect-ratio:4/5;border-radius:20px;border:2px dashed #d8b1bb;background:linear-gradient(180deg,#fff7f8 0%,#f8edf0 100%);display:grid;place-items:center;color:#9f6b76;text-align:center;padding:24px;font-size:.95rem;line-height:1.7;}
-    .mini-note{margin-top:14px;border-radius:16px;background:var(--surface-2);padding:14px 16px;color:var(--text);line-height:1.7;font-size:.9rem;}
-
-    /* STATS */
-    .stats{padding:4px 0 20px;}
-    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-    .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px;}
-    .stat h3{margin:0 0 8px;font-size:1.75rem;font-family:"Cormorant Garamond",serif;color:var(--accent-2);}
-    .stat p{margin:0;color:var(--muted);line-height:1.7;font-size:.92rem;}
-
-    /* SECTIONS */
-    section{padding:28px 0;}
-    .section-card{background:linear-gradient(180deg,rgba(255,250,251,.9),rgba(255,255,255,.92));border:1px solid var(--line);border-radius:34px;padding:40px;}
-    .section-head{margin-bottom:24px;display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;}
-    .label{text-transform:uppercase;letter-spacing:0.28em;color:#b26073;font-size:0.78rem;margin-bottom:8px;}
-    h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4.5vw,3.1rem);line-height:1;font-weight:600;color:var(--accent-2);letter-spacing:-0.03em;}
-    .subcopy{color:var(--muted);line-height:1.8;max-width:60ch;font-size:.95rem;}
-
-    /* ABOUT */
-    .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;}
-    .about-copy{font-size:1.05rem;line-height:1.95;color:var(--text);}
-    .feature-list{display:grid;gap:12px;}
-    .feature-item{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:16px 18px;color:var(--text);line-height:1.75;font-size:.93rem;}
-
-    /* EXPERIENCE */
-    .exp-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;}
-    .timeline{display:flex;flex-direction:column;}
-    .t-item{position:relative;padding:0 0 24px 28px;}
-    .t-item::before{content:'';position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid white;box-shadow:0 0 0 2px var(--accent);}
-    .t-item::after{content:'';position:absolute;left:4px;top:18px;bottom:0;width:2px;background:linear-gradient(var(--line),var(--accent-soft));}
-    .t-item:last-child::after{display:none;}
-    .t-item:last-child{padding-bottom:0;}
-    .t-period{display:inline-flex;font-size:.73rem;font-weight:600;color:white;background:var(--accent);border-radius:999px;padding:2px 10px;margin-bottom:5px;}
-    .t-company{font-size:.97rem;font-weight:600;color:var(--text);margin-bottom:2px;}
-    .t-role{font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:5px;}
-    .t-desc{font-size:.88rem;color:var(--muted);line-height:1.75;}
-    .skills-col{display:flex;flex-direction:column;gap:16px;}
-    .skills-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px;}
-    .skills-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.28em;color:#b26073;margin-bottom:12px;}
-    .skill-bar{margin-bottom:12px;}
-    .skill-bar:last-child{margin-bottom:0;}
-    .skill-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
-    .skill-name{font-size:.9rem;font-weight:500;color:var(--text);}
-    .skill-level{font-size:.75rem;color:var(--accent);}
-    .skill-track{height:5px;border-radius:99px;background:var(--surface-2);}
-    .skill-fill{height:5px;border-radius:99px;background:linear-gradient(to right,var(--accent-2),var(--accent));}
-    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;}
-    .tag{padding:6px 12px;border-radius:999px;font-size:.8rem;background:var(--accent-soft);color:var(--accent-2);border:1px solid var(--line);}
-    .edu-item{display:flex;gap:12px;align-items:flex-start;}
-    .edu-icon{font-size:1.5rem;flex-shrink:0;}
-    .edu-title{font-size:.95rem;font-weight:600;color:var(--text);}
-    .edu-sub{font-size:.8rem;color:var(--accent);margin-top:2px;}
-    .edu-year{font-size:.78rem;color:var(--muted);}
-    .dl-btn{display:flex;flex-direction:column;gap:10px;}
-    .dl-btn a{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:12px;font-size:.88rem;font-weight:600;transition:transform .2s;}
-    .dl-btn a:hover{transform:translateY(-1px);}
-    .dl-primary{background:linear-gradient(135deg,var(--accent-2),var(--accent));color:white;box-shadow:0 8px 20px rgba(111,33,54,.2);}
-    .dl-secondary{background:white;color:var(--accent);border:1px solid var(--line);}
-
-    /* SERVICES */
-    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-    .service{background:linear-gradient(180deg,#f9eef1 0%,#fff9fa 100%);border:1px solid var(--line);border-radius:22px;padding:24px;}
-    .service .icon{width:40px;height:40px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:1.1rem;margin-bottom:16px;}
-    .service h3{margin:0 0 10px;font-size:1.3rem;color:var(--accent-2);line-height:1.2;font-family:"Cormorant Garamond",serif;font-weight:600;}
-    .service p{margin:0;color:var(--muted);line-height:1.8;font-size:.9rem;}
-
-
-    /* FIT BANNER */
-    .fit-banner{background:linear-gradient(135deg,#6f2136,#9b3f56);color:white;border-radius:28px;padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:var(--shadow);}
-    .fit-banner h3{margin:0 0 8px;font-size:1.8rem;font-family:"Cormorant Garamond",serif;}
-    .fit-banner p{margin:0;color:rgba(255,255,255,.9);line-height:1.8;max-width:58ch;font-size:.95rem;}
-    .fit-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;}
-    .fit-tags span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.88rem;}
-
-    /* PROJECTS */
-    .projects-wrap{background:linear-gradient(135deg,#5a182d 0%,#7f2940 50%,#9d4359 100%);border-radius:34px;padding:36px;color:white;box-shadow:var(--shadow);}
-    .projects-wrap .label,.projects-wrap h2,.projects-wrap .subcopy{color:white;}
-    .projects-wrap .label{opacity:.85;}
-    .projects-wrap .subcopy{opacity:.9;}
-    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px;}
-    .project{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:20px;display:grid;grid-template-columns:145px 1fr;gap:16px;align-items:start;}
-    .project-shot{min-height:170px;border-radius:18px;background:rgba(255,255,255,.9);border:2px dashed rgba(164,76,100,.5);color:#8b3148;display:grid;place-items:center;padding:14px;text-align:center;line-height:1.6;font-size:.88rem;}
-    .project small{display:block;margin-bottom:8px;text-transform:uppercase;letter-spacing:.22em;opacity:.8;font-size:.72rem;}
-    .project h3{margin:0 0 9px;font-size:1.75rem;line-height:1.1;font-family:"Cormorant Garamond",serif;font-weight:600;}
-    .project p{margin:0 0 14px;line-height:1.8;opacity:.92;font-size:.9rem;}
-    .project a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);font-size:.85rem;font-weight:600;transition:background .2s;}
-    .project a:hover{background:rgba(255,255,255,.15);}
-
-    /* CONTACT */
-    .contact-card{background:linear-gradient(180deg,#fff6f8 0%,#fffafb 100%);border:1px solid var(--line);border-radius:30px;padding:34px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;}
-    .contact-info h2{margin-bottom:10px;}
-    .contact-info p{margin:0;color:var(--muted);line-height:1.9;max-width:60ch;font-size:.95rem;}
-    .contact-list{display:grid;grid-template-columns:repeat(2,minmax(200px,1fr));gap:12px 24px;margin-top:18px;}
-    .contact-item{color:var(--text);line-height:1.6;font-size:.9rem;}
-    .contact-item strong{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-bottom:2px;}
-
-    /* FOOTER */
-    .footer{padding:24px 0 40px;color:var(--muted);font-size:.9rem;}
-    .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:20px;}
-
-    /* RESPONSIVE */
-    @media(max-width:1100px){
-      .hero-grid,.about-grid,.exp-grid,.projects-grid,.services-grid,.stats-grid,.contact-card,.fit-banner{grid-template-columns:1fr;}
-      .project{grid-template-columns:1fr;}
-    }
-    @media(max-width:780px){
-      .menu{display:none;}
-      .hamburger{display:flex;}
-      .brand-script{font-size:2.4rem;}
-      .section-card,.projects-wrap,.contact-card{padding:22px;}
-      .hero{padding-top:28px;}
-      h1{max-width:none;}
-      .contact-list{grid-template-columns:1fr;}
-      .fit-banner{grid-template-columns:1fr;}
-    }
-    .sub-hero{margin-top:12px;margin-bottom:18px;color:var(--accent);font-size:.95rem;font-weight:600;letter-spacing:.02em;}
-
-    /* WHATSAPP FLOAT PRO */
-.whatsapp-float {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  z-index: 9998;
-  transition: all 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-.whatsapp-float.show {
-  opacity: 1;
-  visibility: visible;
-}
-/* Hover elegante */
-.whatsapp-float:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-}
-.whatsapp-float svg {
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-/* Animación suave (latido) */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
-  }
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.whatsapp-float {
-  animation: pulse 2.5s infinite;
-}
-/* BOTÓN */
-.ask-ai-button {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  background: #7a1e2c;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-/* PANEL */
-.ask-ai-chat {
-  position: fixed;
-  bottom: 80px;
-  left: 24px;
-  width: 300px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 9999;
-}
-
-.chat-header {
-  background: #7a1e2c;
-  color: white;
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-}
-
-.chat-body {
-  padding: 12px;
-  height: 260px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-
-.bot {
-  background: #f1f1f1;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.user {
-  background: #7a1e2c;
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  text-align: right;
-}
-
-.chat-input {
-  display: flex;
-  border-top: 1px solid #eee;
-}
-
-.chat-input input {
-  flex: 1;
-  border: none;
-  padding: 10px;
-}
-
-.chat-input button {
-  background: #7a1e2c;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gloria Mayo | Systems Engineer — Software Quality & Process Automation</title>
+<meta name="description" content="Gloria Mayo — Systems Engineer with 15+ years in software quality, ISO 9001 and process automation. Based in Vaughan, Ontario, Canada." />
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Great+Vibes&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="topbar">
   <div class="container nav">
-    <a class="brand" href="#inicio">
-      <span class="brand-script">Gloria Mayo</span>
-      <span class="brand-sub lang-es lang-hidden">Ingeniera de Sistemas · Soluciones Digitales</span>
-      <span class="brand-sub lang-en">Systems Engineer · Digital Solutions</span>
-    </a>
-    <nav class="menu">
-      <a href="#inicio" class="lang-es lang-hidden">Inicio</a>
-      <a href="#inicio" class="lang-en">Home</a>
-      <a href="#sobre-mi" class="lang-es lang-hidden">Perfil</a>
-      <a href="#sobre-mi" class="lang-en">Profile</a>
-      <a href="#experiencia" class="lang-es lang-hidden">Experiencia</a>
-      <a href="#experiencia" class="lang-en">Experience</a>
-      <a href="#servicios" class="lang-es lang-hidden">Servicios</a>
-      <a href="#pricing" class="lang-es lang-hidden">Precios</a>
-      <a href="#servicios" class="lang-en">Services</a>
-      <a href="#pricing" class="lang-en">Pricing</a>
-      <a href="#proyectos" class="lang-es lang-hidden">Portafolio</a>
-      <a href="#proyectos" class="lang-en">Portfolio</a>
-      <a href="#contacto" class="lang-es lang-hidden">Contacto</a>
-      <a href="#contacto" class="lang-en">Contact</a>
-      <div class="lang">
-        <span id="btn-es" onclick="setLang('es')">ES</span>
-        <span class="active" id="btn-en" onclick="setLang('en')">EN</span>
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true"></span>
+      <div class="brand-text">
+        <span class="brand-name">Gloria Mayo</span>
+        <span class="brand-sub">Systems Engineer · Digital Solutions</span>
       </div>
+    </div>
+    <nav class="menu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+      <span class="lang-switch">
+        <a href="index.html" class="active">EN</a>
+        <a href="index-es.html">ES</a>
+      </span>
     </nav>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span class="h-line"></span><span class="h-line"></span><span class="h-line"></span>
     </button>
   </div>
-  <!-- Mobile lang toggle shown inside hamburger -->
-  <div id="mobile-menu">
-    <!-- Language toggle inside mobile menu -->
-    <div style="display:flex;gap:8px;padding:14px 20px 10px;border-bottom:2px solid #f5dde2;">
-      <span id="mob-btn-en" onclick="setLang('en');toggleMenu()" style="flex:1;text-align:center;padding:10px 8px;border-radius:12px;font-size:1rem;font-weight:600;background:var(--accent);color:white;cursor:pointer;letter-spacing:0.05em;">EN</span>
-      <span id="mob-btn-es" onclick="setLang('es');toggleMenu()" style="flex:1;text-align:center;padding:10px 8px;border-radius:12px;font-size:1rem;font-weight:600;color:var(--muted);cursor:pointer;letter-spacing:0.05em;border:1px solid var(--line);">ES</span>
-    </div>
-    <a href="#inicio" onclick="toggleMenu()" class="lang-es lang-hidden">Inicio</a>
-    <a href="#inicio" onclick="toggleMenu()" class="lang-en">Home</a>
-    <a href="#sobre-mi" onclick="toggleMenu()" class="lang-es lang-hidden">Perfil profesional</a>
-    <a href="#sobre-mi" onclick="toggleMenu()" class="lang-en">Professional profile</a>
-    <a href="#experiencia" onclick="toggleMenu()" class="lang-es lang-hidden">Experiencia</a>
-    <a href="#experiencia" onclick="toggleMenu()" class="lang-en">Experience</a>
-    <a href="#servicios" onclick="toggleMenu()" class="lang-es lang-hidden">Servicios</a>
-    <a href="#pricing" onclick="toggleMenu()" class="lang-es lang-hidden">Precios</a>
-    <a href="#servicios" onclick="toggleMenu()" class="lang-en">Services</a>
-    <a href="#pricing" onclick="toggleMenu()" class="lang-en">Pricing</a>
-    <a href="#proyectos" onclick="toggleMenu()" class="lang-es lang-hidden">Portafolio</a>
-    <a href="#proyectos" onclick="toggleMenu()" class="lang-en">Portfolio</a>
-    <a href="#contacto" onclick="toggleMenu()" class="lang-es lang-hidden">Contacto</a>
-    <a href="#contacto" onclick="toggleMenu()" class="lang-en">Contact</a>
+  <div id="mobile-menu" class="container">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+    <a href="index-es.html">Español</a>
   </div>
 </header>
 
 <main>
 
-<!-- HERO OPTIMIZADO - ENFOQUE EN VENTAS Y RESULTADOS -->
-<section class="hero" id="inicio">
+<section class="hero" id="top">
   <div class="container hero-grid">
     <div>
-      <div class="eyebrow">
-        <span class="lang-es lang-hidden">Inteligente · Autónomo · Elegante · Vaughan</span>
-        <span class="lang-en">Intelligent · Autonomous · Elegant · Vaughan</span>
-      </div>
-
-      <!-- Títulos: Más directos al beneficio -->
-      <h1 class="lang-es lang-hidden">Automatiza Citas. <br><span style="color:var(--accent)">Reduce Inasistencias. Crece.</span></h1>
-      <h1 class="lang-en">Automate Bookings. <br><span style="color:var(--accent)">Reduce No-Shows. Grow.</span></h1>
-
-      <!-- Sub-hero: El valor del tiempo -->
-      <p class="sub-hero lang-en">Stop losing clients and automate your bookings with a system designed for local service businesses.</p>
-      <p class="sub-hero lang-es lang-hidden">Deja de perder clientes y automatiza tus reservas con un sistema diseñado para negocios locales de servicios.</p>
-
-      <!-- Lead: Menos "soy ingeniera", más "esto hago por ti" -->
-      <p class="lead lang-es lang-hidden">Construyo <strong>sistemas completos de reservas y CRM</strong> que automatizan tus citas, reducen inasistencias y te ahorran horas cada semana. Tu negocio se organiza mejor sin depender de llamadas y mensajes manuales.</p>
-      <p class="lead lang-en">I build <strong>complete booking and CRM systems</strong> that automate your appointments, reduce no-shows and save you hours every week. Your business gets organized without depending on manual calls and messages.</p>
-
+      <span class="mono eyebrow">Systems Engineer · Vaughan, Ontario</span>
+      <h1 class="display">Gloria Mayo</h1>
+      <p class="role-line">Software Quality &amp; Process Automation</p>
+      <p class="lead">15+ years bridging <strong>systems engineering</strong>, <strong>ISO 9001 quality management</strong> and hands-on operations — from institutional platforms in Colombia to independently designing and shipping a production CRM system in Canada.</p>
       <div class="cta-row">
-        <!-- El botón principal ahora es la solución de citas -->
-        <a class="btn btn-primary" href="https://appointsuite.tech/book/smart-local-services-demo/" target="_blank" rel="noopener">
-    <span class="lang-es lang-hidden">Probar experiencia de reserva</span>
-    <span class="lang-en">Try a Real Booking Experience</span>
-</a>
-        
-        <!-- Segundo botón para tus paquetes/precios -->
-        <a class="btn btn-secondary" href="#pricing">
-            <span class="lang-es lang-hidden">Ver Planes y Precios</span>
-            <span class="lang-en">View Pricing Plans</span>
-        </a>
+        <a class="btn btn-primary" href="resume-gloria-mayo.pdf" target="_blank" rel="noopener">Download résumé</a>
+        <a class="btn btn-secondary" href="#contact">Get in touch</a>
       </div>
     </div>
-
-    <!-- Tu tarjeta lateral se mantiene igual, es excelente para la confianza personal -->
-    <aside class="hero-card">
-      <div style="aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:2px solid var(--line);box-shadow:0 12px 32px rgba(111,33,54,0.12);">
-        <img src="foto-gloria.jpeg" alt="Gloria Mayo — Systems Engineer, Vaughan Canada" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+    <div class="hero-portrait">
+      <div class="portrait-frame">
+        <img src="foto-gloria.jpeg" alt="Gloria Mayo — Systems Engineer" />
       </div>
-      <div class="mini-note">
-        <strong>📍 Vaughan, Ontario, Canada</strong><br>
-        <span class="lang-es lang-hidden">Fundadora de AppointSuite · G&amp;L Services Group</span>
-        <span class="lang-en">AppointSuite Founder · G&amp;L Services Group</span>
+      <div class="seal">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="#A9752F" stroke-width="1"/>
+          <path id="sealcircle" d="M50,12 a38,38 0 1,1 -0.1,0" fill="none"/>
+          <text font-family="IBM Plex Mono" font-size="6.3" fill="#4A1622" letter-spacing="1.5">
+            <textPath href="#sealcircle" startOffset="2%">QUALITY ENGINEERED · ISO 9001 ·</textPath>
+          </text>
+          <text x="50" y="54" text-anchor="middle" font-family="Fraunces" font-size="15" fill="#7A2436" font-weight="600">GM</text>
+        </svg>
       </div>
-    </aside>
+    </div>
   </div>
 </section>
 
-<!-- STATS -->
 <section class="stats">
   <div class="container stats-grid">
-    <article class="stat"><h3>15+</h3><p class="lang-es lang-hidden">años en soporte técnico, calidad de software y gestión digital.</p><p class="lang-en">years in technical support, software quality and digital management.</p></article>
-    <article class="stat"><h3 class="lang-es lang-hidden">Bilingüe</h3><h3 class="lang-en">Bilingual</h3><p class="lang-es lang-hidden">Español nativo · English intermedio. Adaptación multicultural en Canadá.</p><p class="lang-en">Native Spanish · Intermediate English. Multicultural adaptation in Canada.</p></article>
-    <article class="stat"><h3 style="font-size:1.4rem;">G&amp;L Services Group</h3><p class="lang-es lang-hidden">Empresa propia de servicios digitales con identidad y proyección clara.</p><p class="lang-en">Own digital services company with clear identity and projection.</p></article>
-    <article class="stat" style="border-left:3px solid var(--accent);"><h3>ISO 9001</h3><p class="lang-en">Engineering-grade quality standards powering boutique businesses — the backbone of every Autonomous Booking Ecosystem I build.</p><p class="lang-es lang-hidden">Estándares de calidad de ingeniería que potencian negocios boutique — la base de cada Ecosistema de Reserva Autónomo que construyo.</p></article>
+    <article class="stat"><div class="num">15+</div><p>years in software quality, systems engineering and digital operations</p></article>
+    <article class="stat"><div class="num">ISO 9001</div><p>quality management systems implemented across institutional platforms</p></article>
+    <article class="stat"><div class="num">Bilingual</div><p>native Spanish · intermediate English</p></article>
+    <article class="stat"><div class="num">1 product</div><p>AppointSuite — a CRM &amp; booking system led end-to-end as Product Owner</p></article>
   </div>
 </section>
 
-<!-- SOBRE MÍ - VERSIÓN FINAL LIMPIA -->
-<section id="sobre-mi" style="padding: 100px 0;"> 
-  <div class="container section-card">
-    <div class="section-head" style="margin-bottom: 60px;">
-      <div>
-        <div class="label lang-es lang-hidden">Trayectoria</div>
-        <div class="label lang-en">Founding Story</div>
-        <h2 class="lang-es lang-hidden" style="font-size: 3rem; margin-top: 10px;">Sistemas de reservas para negocios locales.</h2>
-        <h2 class="lang-en" style="font-size: 3rem; margin-top: 10px;">Booking systems for local businesses.</h2>
-      </div>
-      <p class="subcopy lang-es lang-hidden" style="font-size: 1.3rem; max-width: 800px;">Organizo citas, clientes y recordatorios para que tu negocio trabaje con más orden y menos esfuerzo manual.</p>
-      <p class="subcopy lang-en" style="font-size: 1.3rem; max-width: 800px;">Organizing appointments, clients and reminders so your business runs with less manual work.</p>
-    </div>
-    
-    <div class="about-grid" style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start;">
-      <div class="about-copy-container" style="font-size: 1.2rem; line-height: 1.8;">
-        <div class="lang-es lang-hidden">
-          Diseño y construyo sistemas de reservas y CRM que ayudan a negocios locales a organizar sus citas, reducir trabajo manual y mejorar sus operaciones diarias.<br><br>
-          Con experiencia en calidad, procesos y sistemas, creé <strong>AppointSuite</strong> para que salones, costureras, barberías y negocios de servicios puedan atender mejor a sus clientes sin vivir pegados al teléfono.
-        </div>
-        <div class="lang-en">
-          I design and build booking and CRM systems that help local businesses organize their appointments, reduce manual work and improve their daily operations.<br><br>
-          With experience in quality, operations and systems, I created <strong>AppointSuite</strong> so salons, tailors, barbershops and service businesses can serve clients better without depending on constant phone calls.
-        </div>
-      </div>
-
-      <div class="feature-list" style="display: flex; flex-direction: column; gap: 25px;">
-        <div class="feature-item" style="padding: 30px; background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-          <strong class="lang-es lang-hidden">Experiencia Real:</strong>
-          <strong class="lang-en">Real Authority:</strong>
-          <p class="lang-es lang-hidden">Experiencia en calidad de software, administración de plataformas y creación de soluciones digitales aplicadas a negocios reales.</p>
-          <p class="lang-en">Experience in software quality, platform administration and digital solutions applied to real business operations.</p>
-        </div>
-
-        <div class="feature-item" style="padding: 30px; background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-          <strong class="lang-es lang-hidden">Enfoque Local:</strong>
-          <strong class="lang-en">Locally Grounded:</strong>
-          <p class="lang-es lang-hidden">Soluciones creadas para negocios de servicios en Ontario, con enfoque en reservas, clientes, seguimiento y operación diaria.</p>
-          <p class="lang-en">Solutions built for service businesses in Ontario, focused on bookings, clients, follow-up and daily operations.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCIA -->
-<section id="experiencia">
+<section id="about">
   <div class="container section-card">
     <div class="section-head">
-      <div>
-        <div class="label lang-es lang-hidden">Autoridad técnica</div>
-        <div class="label lang-en">Technical Authority</div>
-
-        <h2 class="lang-es lang-hidden">Ingeniería detrás de sistemas confiables para negocios reales</h2>
-        <h2 class="lang-en">Engineering Behind Reliable Business Systems</h2>
-      </div>
-
-      <p class="subcopy lang-es lang-hidden">
-        AppointSuite está construido sobre experiencia real en calidad de software, estándares ISO, optimización de procesos y operación diaria de negocios.
-      </p>
-      <p class="subcopy lang-en">
-        AppointSuite is built on real experience in software quality, ISO standards, process optimization and real-world business operations.
-      </p>
+      <span class="mono">About</span>
+      <h2>Engineering discipline, applied end to end.</h2>
+      <p class="subcopy">A career built on making systems reliable — and, more recently, on building one myself from the ground up.</p>
     </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        I'm a <strong>Systems Engineer</strong> with 15+ years of experience spanning software quality, ISO 9001 implementation and institutional platform administration in Colombia. After relocating to Canada in 2020, I spent two years in focused professional development and requalification, then joined Costco Canada to build direct, hands-on experience inside a high-standard North American operation.<br><br>
+        In parallel, I founded and led <strong>AppointSuite</strong> as Product Owner — a multi-tenant booking and CRM system — coordinating solution design, client onboarding and production deployment, and leveraging AI-assisted development to turn business requirements into working software. It's proof I can take a real operational problem from idea to working, production software, not just describe one.
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <strong>Quality-first mindset</strong>
+          <p>Trained in ISO 9001 environments — I default to structure, documentation and traceability, not just working code.</p>
+        </div>
+        <div class="feature-item">
+          <strong>Product ownership</strong>
+          <p>AppointSuite was defined, coordinated and delivered by me as Product Owner — from the functional data model to the client-facing booking flow — working directly with the client to gather requirements and iterate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="experience">
+  <div class="container section-card">
+    <div class="section-head">
+      <span class="mono">Experience</span>
+      <h2>Where the discipline was built.</h2>
+    </div>
     <div class="exp-grid">
       <div class="timeline">
-
         <div class="t-item">
-          <span class="t-period">2022 – Present</span>
+          <span class="t-period">2022 — Present</span>
           <div class="t-company">Costco Canada · Vaughan, ON</div>
-          <div class="t-role lang-es lang-hidden">Operaciones canadienses · Estándares de calidad</div>
-          <div class="t-role lang-en">Canadian Operations · Quality Standards</div>
-
-          <div class="t-desc lang-es lang-hidden">
-            Experiencia actual en un entorno canadiense de alto estándar, con visión directa sobre flujos operativos, logística, servicio al cliente y control de calidad en negocios reales.
-          </div>
-          <div class="t-desc lang-en">
-            Current experience in a high-standard Canadian environment, with direct insight into operational workflows, logistics, client flow and quality control in real business settings.
-          </div>
+          <div class="t-role">Machine Operator · ISO-Certified Facility</div>
+          <div class="t-desc">Perform receiving, inventory control and truck-loading operations under Costco's ISO-certified quality and safety protocols. Certified forklift &amp; EPJ operator, certified in food-handling safety and in Transportation of Dangerous Goods (TDG), Canada (2025).</div>
         </div>
-
         <div class="t-item">
-          <span class="t-period">2008 – 2020</span>
-          <div class="t-company lang-es lang-hidden">Gobernación de Antioquia · Colombia</div>
-          <div class="t-company lang-en">Government of Antioquia · Colombia</div>
-          <div class="t-role lang-es lang-hidden">Ingeniera de Sistemas · Calidad de software y plataformas institucionales</div>
-          <div class="t-role lang-en">Systems Engineer · Software Quality & Institutional Platforms</div>
-
-          <div class="t-desc lang-es lang-hidden">
-            Implementación de sistemas de calidad ISO 9001, supervisión técnica de plataformas institucionales y apoyo en procesos de control, documentación, seguridad y mejora operativa.
-          </div>
-          <div class="t-desc lang-en">
-            Implementation of ISO 9001 quality systems, technical supervision of institutional platforms and support for control, documentation, security and operational improvement processes.
-          </div>
+          <span class="t-period">2020 — 2022</span>
+          <div class="t-company">Professional Development · Canada</div>
+          <div class="t-role">Requalification &amp; Study</div>
+          <div class="t-desc">Focused study and professional adaptation after relocating from Colombia to Canada, preparing for the Canadian job market.</div>
         </div>
-
         <div class="t-item">
-          <span class="t-period" style="background:#b05468;">Applied Today</span>
-          <div class="t-company lang-es lang-hidden">Aplicado en AppointSuite · G&amp;L Services Group</div>
-          <div class="t-company lang-en">Applied in AppointSuite · G&amp;L Services Group</div>
-          <div class="t-role lang-es lang-hidden">Sistemas de reservas, CRM y automatización para negocios locales</div>
-          <div class="t-role lang-en">Booking, CRM & Automation Systems for Local Businesses</div>
-
-          <div class="t-desc lang-es lang-hidden">
-            Esa experiencia se aplica directamente en AppointSuite: un sistema diseñado para ayudar a negocios locales a organizar citas, reducir trabajo manual, mejorar seguimiento y operar con más estructura.
-          </div>
-          <div class="t-desc lang-en">
-            This experience is directly applied in AppointSuite: a system designed to help local businesses organize appointments, reduce manual work, improve follow-up and operate with more structure.
-          </div>
+          <span class="t-period">2008 — 2020</span>
+          <div class="t-company">Government of Antioquia · Colombia</div>
+          <div class="t-role">Systems Engineer · Software Quality &amp; Institutional Platforms</div>
+          <div class="t-desc">Administered and supported ISOlución (ISO 9001 quality platform), led requirements and vendor supervision for the SIVICO mobile system, and managed annual procurement of Microsoft and Adobe enterprise software.</div>
         </div>
-
+        <div class="t-item">
+          <span class="t-period" style="background:var(--brass);">Applied today</span>
+          <div class="t-company">AppointSuite · Founder &amp; Product Owner</div>
+          <div class="t-role">Booking, CRM &amp; Automation Systems</div>
+          <div class="t-desc">The same quality assurance discipline, applied as Founder &amp; Product Owner of an independent product — coordinating solution design and delivery with AI-assisted development. Registered Microsoft Partner, currently pursuing the Dynamics 365 Sales Functional Consultant Associate certification (MB-210).</div>
+        </div>
       </div>
 
       <div class="skills-col">
-
         <div class="skills-box">
-          <div class="skills-title lang-es lang-hidden">Por qué confiar</div>
-          <div class="skills-title lang-en">Why Trust This System</div>
-
-          <p class="lang-es lang-hidden" style="color:var(--muted); line-height:1.8; font-size:.9rem;">
-            No construyo solo páginas bonitas. Diseño sistemas con mentalidad de ingeniería: estructura, calidad, organización, trazabilidad y facilidad de uso para negocios reales.
-          </p>
-          <p class="lang-en" style="color:var(--muted); line-height:1.8; font-size:.9rem;">
-            I do not build only beautiful websites. I design systems with an engineering mindset: structure, quality, organization, traceability and usability for real businesses.
-          </p>
-        </div>
-
-        <div class="skills-box">
-          <div class="skills-title lang-es lang-hidden">Educación</div>
-          <div class="skills-title lang-en">Education</div>
-
+          <div class="skills-title">Education</div>
           <div class="edu-item">
-            <span class="edu-icon">🎓</span>
+            <svg class="edu-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brass)" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
             <div>
-              <div class="edu-title lang-es lang-hidden">Ingeniería de Sistemas</div>
-              <div class="edu-title lang-en">Bachelor in Systems Engineering</div>
+              <div class="edu-title">Bachelor in Systems Engineering</div>
               <div class="edu-sub">Antonio Nariño University · Bogotá, Colombia</div>
-              <div class="edu-year lang-es lang-hidden">Graduada 2008</div>
-              <div class="edu-year lang-en">Graduated 2008</div>
+              <div class="edu-year">Graduated 2008</div>
             </div>
           </div>
         </div>
-
-        <div class="skills-box">
-          <div class="skills-title lang-es lang-hidden">Core Expertise</div>
-          <div class="skills-title lang-en">Core Expertise</div>
-
-          <div class="tag-cloud">
-            <span class="tag">Software Quality</span>
-            <span class="tag">ISO 9001</span>
-            <span class="tag">Process Optimization</span>
-            <span class="tag">Operational Systems</span>
-            <span class="tag">Automation Strategy</span>
-            <span class="tag">Client Workflow Design</span>
-          </div>
-        </div>
-
-        <div class="skills-box">
-          <div class="skills-title lang-es lang-hidden">Stack tecnológico</div>
-          <div class="skills-title lang-en">Technology Stack</div>
-
-          <div class="tag-cloud">
-            <span class="tag">Python</span>
-            <span class="tag">Django</span>
-            <span class="tag">CRM Systems</span>
-            <span class="tag">Online Booking</span>
-            <span class="tag">Multi-tenant Systems</span>
-            <span class="tag">QR Workflows</span>
-            <span class="tag">Web Design</span>
-            <span class="tag">Microsoft 365</span>
-          </div>
-        </div>
-
-        <div class="skills-box">
-          <div class="skills-title lang-es lang-hidden">Idiomas</div>
-          <div class="skills-title lang-en">Languages</div>
-
-          <p class="lang-es lang-hidden" style="color:var(--muted); line-height:1.8; font-size:.9rem;">
-            Español nativo · English intermedio · Comunicación bilingüe para clientes en Canadá.
-          </p>
-          <p class="lang-en" style="color:var(--muted); line-height:1.8; font-size:.9rem;">
-            Native Spanish · Intermediate English · Bilingual communication for clients in Canada.
-          </p>
-        </div>
-
         <div class="skills-box dl-btn">
-          <div class="skills-title lang-es lang-hidden">Siguiente paso</div>
-          <div class="skills-title lang-en">Start Here</div>
-
-          <p class="lang-es lang-hidden" style="color:var(--muted); line-height:1.8; font-size:.9rem;">
-            He aplicado mi experiencia en calidad, procesos y automatización en AppointSuite. Mira cómo puede ayudar a organizar tu negocio.
-          </p>
-          <p class="lang-en" style="color:var(--muted); line-height:1.8; font-size:.9rem;">
-            I applied my experience in quality, processes and automation into AppointSuite. See how it can help organize your business.
-          </p>
-
-          <a href="/demo.html" class="dl-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="12"/>
-              <line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-
-            <span class="lang-en">🎯 Get My Booking System</span>
-            <span class="lang-es lang-hidden">🎯 Quiero mi sistema de reservas</span>
-          </a>
-
-          <a href="mailto:givone@hotmail.com?subject=Consultation%20Request" class="dl-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <span class="lang-en">givone@hotmail.com</span>
-            <span class="lang-es lang-hidden">givone@hotmail.com</span>
-          </a>
+          <div class="skills-title">Get in touch</div>
+          <p class="note">Available for systems, quality and process-automation roles.</p>
+          <a href="resume-gloria-mayo.pdf" class="dl-primary" target="_blank" rel="noopener">Download résumé</a>
+          <a href="mailto:givone@hotmail.com?subject=Let's%20connect" class="dl-secondary">givone@hotmail.com</a>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- SERVICIOS -->
-<section id="servicios">
+<section id="skills">
   <div class="container section-card">
     <div class="section-head">
-      <div>
-        <div class="label lang-es lang-hidden">Lo que ofrezco</div><div class="label lang-en">What I offer</div>
-        <h2 class="lang-es lang-hidden">Servicios</h2><h2 class="lang-en">Services</h2>
-      </div>
-      <p class="subcopy lang-es lang-hidden">Soluciones digitales orientadas a resultados reales para negocios locales en Canadá.</p>
-      <p class="subcopy lang-en">Results-oriented digital solutions for local businesses in Canada.</p>
+      <span class="mono">Skills</span>
+      <h2>Core expertise &amp; stack.</h2>
     </div>
-    <div class="services-grid">
-      <article class="service">
-        <div class="icon">✺</div>
-        <h3 class="lang-es lang-hidden">Ecosistema de Reserva Autónomo</h3><h3 class="lang-en">Autonomous Booking Ecosystem</h3>
-        <p class="lang-es lang-hidden">Sistema completo para reservas online, clientes, recordatorios y seguimiento. Es el mismo tipo de sistema que puedes ver en la demo en vivo.</p>
-        <p class="lang-en">A complete system for online bookings, clients, reminders and follow-up. This is the same type of system you can see in the live demo.</p>
-      </article>
-      <article class="service">
-        <div class="icon">↗</div>
-        <h3 class="lang-es lang-hidden">Programación Inteligente</h3><h3 class="lang-en">Intelligent Scheduling</h3>
-        <p class="lang-es lang-hidden">Recordatorios automáticos, flujos de respuesta, notificaciones y procesos que reducen errores de agenda y ahorran tiempo.</p>
-        <p class="lang-en">Automated flows that reduce scheduling errors, support reminders and help your clients confirm appointments without constant manual follow-up.</p>
-      </article>
-      <article class="service">
-        <div class="icon">⌘</div>
-        <h3 class="lang-es lang-hidden">Integración Fluida</h3><h3 class="lang-en">Seamless Integration</h3>
-        <p class="lang-es lang-hidden">Sistema de citas 24/7, formularios de contacto, disponibilidad en tiempo real y mejor experiencia para el cliente desde el primer clic.</p>
-        <p class="lang-en">Your digital assistant connects with your website and payment gateways <em>(coming soon)</em> — ensuring every appointment is a secure, professional and effortless transaction.</p>
-      </article>
-      <article class="service">
-        <div class="icon">✦</div>
-        <h3 class="lang-es lang-hidden">Lealtad Basada en Datos</h3><h3 class="lang-en">Data-Driven Loyalty</h3>
-        <p class="lang-es lang-hidden">El sistema analiza el comportamiento de los clientes para enviar recordatorios personalizados y ofertas exclusivas — convirtiendo visitas únicas en clientes fieles, automáticamente.</p>
-        <p class="lang-en">The system analyzes client behavior to send personalized reminders and exclusive offers — turning one-time visitors into loyal regulars, automatically.</p>
-      </article>
+    <div class="exp-grid">
+      <div class="skills-box">
+        <div class="skills-title">Core expertise</div>
+        <div class="tag-cloud">
+          <span class="tag">Software Quality</span>
+          <span class="tag">ISO 9001</span>
+          <span class="tag">Process Optimization</span>
+          <span class="tag">Operational Systems</span>
+          <span class="tag">Automation Strategy</span>
+          <span class="tag">Client Workflow Design</span>
+        </div>
+      </div>
+      <div class="skills-box">
+        <div class="skills-title">Technology stack</div>
+        <div class="tag-cloud">
+          <span class="tag">Python</span>
+          <span class="tag">Django</span>
+          <span class="tag">CRM Systems</span>
+          <span class="tag">Multi-tenant Architecture</span>
+          <span class="tag">Web Design</span>
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">Microsoft Partner · Dynamics 365</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="container section-card">
-
+<section id="work">
+  <div class="container section-card contact-block">
     <div class="section-head">
-      <div>
-        <div class="label lang-es lang-hidden">Precios</div>
-        <div class="label lang-en">Pricing</div>
-
-        <h2 class="lang-es lang-hidden">Precios simples</h2>
-        <h2 class="lang-en">Simple Pricing</h2>
-      </div>
-    </div>
-
-    <div style="max-width:650px; margin-bottom:30px;">
-      <p class="lang-es lang-hidden" style="color:var(--muted); line-height:1.8;">
-        Esto no es solo una página web. Es un sistema de reservas y gestión de clientes que ayuda a tu negocio a organizar citas, reducir trabajo manual y verse más profesional.
-      </p>
-
-      <p class="lang-en" style="color:var(--muted); line-height:1.8;">
-        This is not just a website. It is a booking and client management system that helps your business organize appointments, reduce manual work and look more professional.
-      </p>
-
-      <p class="lang-es lang-hidden" style="color:var(--muted); font-size:.9rem; margin-top:10px;">
-        La mayoría de los negocios tienen su sistema listo en menos de 3 días.
-      </p>
-
-      <p class="lang-en" style="color:var(--muted); font-size:.9rem; margin-top:10px;">
-        Most businesses get their system ready in less than 3 days.
-      </p>
-
-      <p class="lang-es lang-hidden" style="color:var(--accent); font-size:.9rem; font-weight:600; margin-top:10px;">
-        Ya estoy ayudando a negocios locales a organizar reservas y reducir inasistencias.
-      </p>
-
-      <p class="lang-en" style="color:var(--accent); font-size:.9rem; font-weight:600; margin-top:10px;">
-        Already helping local businesses organize bookings and reduce no-shows.
-      </p>
-    </div>
-
-    <div class="services-grid">
-
-      <!-- PLAN 1 -->
-      <article class="service">
-        <div class="icon">1</div>
-
-        <h3 class="lang-es lang-hidden">Setup Básico</h3>
-        <h3 class="lang-en">Basic Setup</h3>
-
-        <p><strong>$120 CAD</strong></p>
-
-        <p class="lang-es lang-hidden">
-          Perfecto para pequeños negocios que están empezando a recibir reservas online.<br><br>
-          Página de reservas<br>
-          Agenda online<br>
-          Confirmaciones por email
-        </p>
-
-        <p class="lang-en">
-          Perfect for small businesses starting online bookings.<br><br>
-          Booking website<br>
-          Online scheduling<br>
-          Email confirmations
-        </p>
-      </article>
-
-      <!-- PLAN 2 (RECOMENDADO) -->
-      <article class="service">
-        <div class="icon">2</div>
-
-        <span style="font-size:.7rem; color:white; background:var(--accent); padding:4px 8px; border-radius:999px; display:inline-block; margin-bottom:8px;">
-          Most Popular
-        </span>
-
-        <h3 class="lang-es lang-hidden">Setup Avanzado</h3>
-        <h3 class="lang-en">Advanced Setup</h3>
-
-        <p><strong>$180 CAD</strong></p>
-
-        <p style="font-size:.85rem; color:var(--accent); font-weight:600;">
-          Most chosen by growing businesses
-        </p>
-
-        <p class="lang-es lang-hidden">
-          Ideal para negocios que quieren automatizar y ahorrar tiempo.<br><br>
-          Todo lo del Básico<br>
-          Recordatorios automáticos (menos ausencias)<br>
-          Sistema QR (reservas más rápidas)<br>
-          Soporte de chatbot
-        </p>
-
-        <p class="lang-en">
-          Ideal for businesses that want to automate and save time.<br><br>
-          Everything in Basic<br>
-          Automated reminders (reduce no-shows)<br>
-          QR booking system (faster bookings)<br>
-          Chatbot support
-        </p>
-      </article>
-
-      <!-- PLAN 3 -->
-      <article class="service">
-        <div class="icon">3</div>
-
-        <h3 class="lang-es lang-hidden">Soporte Mensual</h3>
-        <h3 class="lang-en">Monthly Support</h3>
-
-        <p><strong>$50 CAD / month</strong></p>
-
-        <p class="lang-es lang-hidden">
-          Mantenimiento<br>
-          Actualizaciones<br>
-          Soporte continuo
-        </p>
-
-        <p class="lang-en">
-          Maintenance<br>
-          Updates<br>
-          Ongoing support
-        </p>
-      </article>
-
-      <!-- DEMO -->
-      <article class="service">
-        <div class="icon">✦</div>
-
-        <h3 class="lang-es lang-hidden">Demo Privada</h3>
-        <h3 class="lang-en">Private Demo</h3>
-
-        <p class="lang-es lang-hidden">
-          Revisamos tu negocio y te recomiendo la mejor configuración.
-        </p>
-
-        <p class="lang-en">
-          We review your business and I recommend the best setup.
-        </p>
-
-        <div style="margin-top:14px;">
-  <a href="/demo.html" class="btn btn-primary" style="padding:10px 14px;font-size:.82rem;">
-    <span class="lang-es lang-hidden">Iniciar mi sistema de reservas</span>
-    <span class="lang-en">Start My Booking System</span>
-  </a>
-</div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- FIT BANNER -->
-<section>
-  <div class="container fit-banner">
-    <div>
-      <h3 class="lang-es lang-hidden">Creado para negocios de servicios que quieren dejar de perder clientes</h3>
-      <h3 class="lang-en">Built for service businesses that want to stop losing clients</h3>
-      <p class="lang-es lang-hidden">Creado específicamente para salones, barberías y negocios de servicios que quieren dejar de perder clientes, organizar reservas y trabajar con más eficiencia.</p>
-      <p class="lang-en">Built specifically for salons, barbershops and service businesses that want to stop losing clients, organize bookings and run more efficiently.</p>
-      <div class="fit-tags">
-        <span>💇‍♀️ Beauty salons</span><span>💈 Barbershops</span><span>🌿 Wellness brands</span><span>🏪 Local businesses</span><span>👩‍💻 Personal brands</span>
-      </div>
-    </div>
-    <a href="#contacto" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.22);white-space:nowrap;">
-      <span class="lang-es lang-hidden">Iniciar mi sistema</span><span class="lang-en">Start My System</span>
-    </a>
-  </div>
-</section>
-
-<!-- PORTAFOLIO -->
-<section id="proyectos">
-  <div class="container projects-wrap">
-    <div class="section-head">
-      <div>
-        <div class="label lang-es lang-hidden">Portafolio</div><div class="label lang-en">Portfolio</div>
-        <h2 class="lang-es lang-hidden">Proyectos destacados</h2><h2 class="lang-en">Featured projects</h2>
-      </div>
-      <p class="subcopy lang-es lang-hidden">Proyectos reales con identidad, propósito y resultados concretos.</p>
-      <p class="subcopy lang-en">Real projects with identity, purpose and concrete results.</p>
+      <span class="mono">Selected work</span>
+      <h2>Case studies, not a catalog.</h2>
+      <p class="subcopy" style="color:#E7D2CE;">Real systems, built and shipped — each one a proof point, not a pitch.</p>
     </div>
     <div class="projects-grid">
-      <article class="project">
-        <a href="https://glservicesgroup.com" target="_blank" rel="noopener" style="display:flex;min-height:170px;border-radius:18px;background:white;border:1px solid rgba(255,255,255,.3);align-items:center;justify-content:center;padding:20px;cursor:pointer;">
-          <img src="logo-gl.png" alt="G&L Services Group" style="max-width:100%;max-height:130px;object-fit:contain;" />
-        </a>
-        <div>
-          <small class="lang-es lang-hidden">01 · empresa digital · Canadá</small><small class="lang-en">01 · digital company · Canada</small>
-          <h3>G&amp;L Services Group <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px 8px;font-family:Inter,sans-serif;font-size:.68rem;font-weight:500;vertical-align:middle;" class="lang-en">✓ Live</span><span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px 8px;font-family:Inter,sans-serif;font-size:.68rem;font-weight:500;vertical-align:middle;" class="lang-es lang-hidden">✓ En vivo</span></h3>
-          <p class="lang-es lang-hidden">Empresa matriz de todos los proyectos digitales: CRM AppointSuite, diseño web y soluciones para negocios locales en Canadá.</p>
-          <p class="lang-en">Parent company for all digital projects: AppointSuite CRM, web design and tailored digital solutions for local businesses across Canada.</p>
-          <a href="https://glservicesgroup.com" target="_blank" rel="noopener"><span class="lang-es lang-hidden">Ver sitio</span><span class="lang-en">Visit live site</span> ↗</a>
+
+      <article class="project-card">
+        <div class="project-media"><img src="logo-appointsuite.png" alt="AppointSuite"></div>
+        <div class="project-body">
+          <span class="project-tag">CRM &amp; Booking Product</span>
+          <h3>AppointSuite</h3>
+          <p>A multi-tenant booking and CRM system for local service businesses, led end-to-end as Product Owner.</p>
+          <div class="case-block">
+            <div class="case-row"><span class="k">Challenge</span><span class="v">Local businesses were losing clients to no-shows and manual, phone-based scheduling.</span></div>
+            <div class="case-row"><span class="k">My role</span><span class="v">Founder &amp; Product Owner — defined the functional data model and business workflows, coordinated solution design and client onboarding, and leveraged AI-assisted development to deliver production-ready software.</span></div>
+            <div class="case-row"><span class="k">Stack</span><span class="v">Python, Django, multi-tenant architecture</span></div>
+          </div>
+          <a class="project-link" href="https://appointsuite.tech/book/smart-local-services-demo/" target="_blank" rel="noopener">View live demo →</a>
         </div>
       </article>
-      <article class="project">
-        <a href="https://vaughansewing.ca" target="_blank" rel="noopener" style="display:block;min-height:170px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.2);position:relative;cursor:pointer;">
-          <img src="logo-vaughansewing.png" alt="Vaughan Sewing — Home Sewing, New Life to Your Clothes" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(111,33,54,.75));padding:8px 12px;display:flex;align-items:center;justify-content:space-between;">
-            <span style="color:white;font-size:.75rem;font-weight:600;">vaughansewing.ca</span>
-            <span style="color:white;font-size:.75rem;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 8px;" class="lang-en">✓ Live</span>
-            <span style="color:white;font-size:.75rem;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 8px;" class="lang-es lang-hidden">✓ En vivo</span>
-          </div>
-        </a>
-        <div>
-          <small class="lang-es lang-hidden">02 · negocio local · Canadá</small><small class="lang-en">02 · local business · Canada</small>
+
+      <article class="project-card">
+        <div class="project-media"><img src="logo-vaughansewing.png" alt="Vaughan Sewing"></div>
+        <div class="project-body">
+          <span class="project-tag">Client Pilot · Live</span>
           <h3>Vaughan Sewing</h3>
-          <p class="lang-es lang-hidden">Sitio en vivo para negocio de costura y arreglos en Vaughan, ON. Estética elegante, femenina y cercana para clientes locales.</p>
-          <p class="lang-en">Live sewing & alterations business website in Vaughan, ON. Elegant, feminine and approachable aesthetic for local Canadian clients.</p>
-          <a href="https://vaughansewing.ca" target="_blank" rel="noopener"><span class="lang-es lang-hidden">Ver sitio</span><span class="lang-en">Visit live site</span> ↗</a>
-        </div>
-      </article>
-      <article class="project">
-        <div style="min-height:170px;border-radius:18px;background:white;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;padding:20px;">
-          <img src="logo-appointsuite.png" alt="AppointSuite CRM" style="max-width:100%;max-height:130px;object-fit:contain;" />
-        </div>
-        <div>
-  <small class="lang-es lang-hidden">03 · CRM y reservas</small>
-  <small class="lang-en">03 · CRM & booking system</small>
-
-  <h3>
-    AppointSuite
-    <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px 8px;font-family:Inter,sans-serif;font-size:.68rem;font-weight:500;vertical-align:middle;" class="lang-en">
-      Live Demo Available
-    </span>
-    <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px 8px;font-family:Inter,sans-serif;font-size:.68rem;font-weight:500;vertical-align:middle;" class="lang-es lang-hidden">
-      Demo en vivo
-    </span>
-  </h3>
-
-  <p class="lang-es lang-hidden">
-    Sistema completo de reservas y CRM para negocios locales. Tus clientes reservan online, tú ves las citas organizadas y reduces llamadas manuales.
-  </p>
-
-  <p class="lang-en">
-    Complete booking and CRM system for local businesses. Your clients book online, you see appointments organized, and manual calls are reduced.
-  </p>
-
-  <a href="https://appointsuite.tech/book/smart-local-services-demo/" target="_blank" rel="noopener">
-    <span class="lang-es lang-hidden">Probar experiencia de reserva</span>
-    <span class="lang-en">Try a Real Booking Experience</span> ↗
-  </a>
-</div>
-      </article>
-      <article class="project">
-        <a href="https://vivirligero.co" target="_blank" rel="noopener" style="display:block;min-height:170px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.2);position:relative;cursor:pointer;">
-          <img src="logo-vivirligero.jpeg" alt="Vivir Ligero" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
-          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(45,106,79,.85));padding:8px 12px;display:flex;align-items:center;justify-content:space-between;">
-            <span style="color:white;font-size:.75rem;font-weight:600;">vivirligero.co</span>
-            <span style="color:white;font-size:.72rem;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 8px;" class="lang-en">✓ Live</span>
-            <span style="color:white;font-size:.72rem;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 8px;" class="lang-es lang-hidden">✓ En vivo</span>
+          <p>Production deployment of AppointSuite for a real sewing &amp; alterations business in Vaughan, ON.</p>
+          <div class="case-block">
+            <div class="case-row"><span class="k">Result</span><span class="v">Live booking system in daily use by a real client — proof the product works outside a demo environment.</span></div>
           </div>
-        </a>
-        <div>
-          <small class="lang-es lang-hidden">04 · proyecto web · bienestar</small><small class="lang-en">04 · wellness web project</small>
-          <h3>Vivir Ligero</h3>
-          <p class="lang-es lang-hidden">Sitio de bienestar con identidad editorial cuidada, comunicación visual limpia y propósito claro.</p>
-          <p class="lang-en">Wellness lifestyle site with refined editorial identity and clean, purposeful visual communication.</p>
-          <a href="https://vivirligero.co" target="_blank" rel="noopener"><span class="lang-es lang-hidden">Ver sitio</span><span class="lang-en">Visit live site</span> ↗</a>
+          <a class="project-link" href="https://vaughansewing.ca" target="_blank" rel="noopener">Visit live site →</a>
         </div>
       </article>
+
+      <article class="project-card">
+        <div class="project-media"><img src="logo-vivirligero.jpeg" alt="Vivir Ligero"></div>
+        <div class="project-body">
+          <span class="project-tag">Brand Site</span>
+          <h3>Vivir Ligero</h3>
+          <p>Wellness lifestyle website with a clean editorial identity and a clear, purposeful visual system.</p>
+          <a class="project-link" href="https://vivirligero.co" target="_blank" rel="noopener">Visit live site →</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-media"><img src="logo-gl.png" alt="G&L Services Group"></div>
+        <div class="project-body">
+          <span class="project-tag">Founder</span>
+          <h3>G&amp;L Services Group</h3>
+          <p>The company behind AppointSuite — where the product is available for local businesses to license.</p>
+          <a class="project-link" href="https://glservicesgroup.com" target="_blank" rel="noopener">Visit company site →</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="container contact-card">
-    <div class="contact-info">
-      <div class="label lang-es lang-hidden">Hablemos</div><div class="label lang-en">Let's connect</div>
-      <h2 class="lang-es lang-hidden">¿Lista para poner tu negocio en piloto automático?</h2><h2 class="lang-en">Ready to put your business on autopilot?</h2>
-      <p class="lang-es lang-hidden">Disponible para implementar sistemas de reservas, CRM, recordatorios, páginas web y automatización para negocios locales en Canadá.</p>
-      <p class="lang-en">Let's build your booking and CRM system. Online scheduling, client management, reminders and digital workflows for your service business in Ontario.</p>
+<section id="contact">
+  <div class="container section-card contact-card">
+    <div>
+      <span class="mono">Let's connect</span>
+      <h2 style="margin-top:10px;">Open to systems, quality &amp; automation roles.</h2>
       <div class="contact-list">
         <div class="contact-item"><strong>Email</strong>givone@hotmail.com</div>
-        <div class="contact-item"><strong class="lang-es lang-hidden">Teléfono</strong><strong class="lang-en">Phone</strong>+1 437-677-9018</div>
-        <div class="contact-item"><strong class="lang-es lang-hidden">Ubicación</strong><strong class="lang-en">Location</strong>Vaughan, Ontario, Canada</div>
-        <div class="contact-item"><strong class="lang-es lang-hidden">Empresa</strong><strong class="lang-en">Company</strong>G&amp;L Services Group</div>
+        <div class="contact-item"><strong>Phone</strong>+1 437-677-9018</div>
+        <div class="contact-item"><strong>Location</strong>Vaughan, Ontario, Canada</div>
+        <div class="contact-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/gloria-mayo-10835a1a/" target="_blank" rel="noopener">linkedin.com/in/gloria-mayo</a></div>
       </div>
     </div>
-    <a class="btn btn-primary" href="mailto:givone@hotmail.com?subject=Consulta%20desde%20gloriamayo.com">
-      <span class="lang-es lang-hidden">Contáctame</span><span class="lang-en">Contact me</span>
-    </a>
+    <a class="btn btn-primary" href="mailto:givone@hotmail.com?subject=Let's%20connect">Contact me</a>
   </div>
 </section>
 
@@ -980,201 +286,76 @@
 
 <footer class="footer">
   <div class="container footer-row">
-    <div>
-      <strong style="color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:1.4rem;">Gloria Mayo</strong><br>
-      <span class="lang-es lang-hidden" style="font-size:.85rem;">Soluciones digitales · G&amp;L Services Group</span>
-      <span class="lang-en" style="font-size:.85rem;">Intelligent · Autonomous · Elegant · G&amp;L Services Group</span>
-    </div>
-    <div>© <span id="year"></span> Gloria Ivone Mayo Arango · G&amp;L Services Group. <span class="lang-es lang-hidden">Todos los derechos reservados.</span><span class="lang-en">All rights reserved.</span></div>
+    <div><strong>Gloria Mayo</strong><br>Systems Engineer · Software Quality &amp; Process Automation</div>
+    <div>© <span id="year"></span> Gloria Ivone Mayo Arango. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  function setLang(lang) {
-    const isEs = lang === 'es';
-    document.querySelectorAll('.lang-es').forEach(el => el.classList.toggle('lang-hidden', !isEs));
-    document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('lang-hidden', isEs));
-    document.getElementById('btn-es').classList.toggle('active', isEs);
-    document.getElementById('btn-en').classList.toggle('active', !isEs);
-    document.documentElement.lang = lang;
-    // Update mobile buttons
-    const mobEn = document.getElementById('mob-btn-en');
-    const mobEs = document.getElementById('mob-btn-es');
-    if(mobEn && mobEs) {
-      if(isEs) {
-        mobEs.style.background='var(--accent)'; mobEs.style.color='white';
-        mobEn.style.background=''; mobEn.style.color='var(--muted)';
-      } else {
-        mobEn.style.background='var(--accent)'; mobEn.style.color='white';
-        mobEs.style.background=''; mobEs.style.color='var(--muted)';
-      }
-    }
-  }
   function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const btn = document.getElementById('hamburger');
-    menu.classList.toggle('open');
-    btn.classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
   }
-  window.addEventListener('scroll', () => {
-    const menu = document.getElementById('mobile-menu');
-    const btn = document.getElementById('hamburger');
-    if (menu.classList.contains('open')) { menu.classList.remove('open'); btn.classList.remove('open'); }
-  });
 </script>
-<!-- ASK AI BUTTON -->
-<div class="ask-ai-button" onclick="toggleChat()" aria-label="Ask Gloria AI Assistant">Ask AI</div>
 
 <!-- WHATSAPP FLOAT -->
-<button
-  onclick="openWAModal()"
-  class="whatsapp-float"
-  aria-label="Chat on WhatsApp">
+<button onclick="openWAModal()" class="whatsapp-float" aria-label="Chat on WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
     <path fill="white" d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.885.754 5.593 2.066 7.942L0 32l7.863-2.063A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.21c-2.593 0-5.022-.675-7.133-1.854l-.51-.303-4.664 1.224 1.244-4.548-.332-.527A13.92 13.92 0 0 1 2.08 16.396C2.08 8.87 8.474 2.476 16 2.476c7.526 0 13.92 6.394 13.92 13.92 0 7.526-6.394 13.92-13.92 13.92zm7.743-10.41c-.423-.212-2.503-1.235-2.89-1.377-.388-.141-.67-.212-.953.212-.283.423-1.094 1.377-1.342 1.66-.247.283-.495.318-.918.106-.423-.212-1.788-.66-3.406-2.104-1.258-1.122-2.108-2.506-2.356-2.929-.247-.423-.026-.651.186-.863.19-.19.423-.495.635-.743.212-.247.283-.423.423-.706.141-.283.071-.53-.035-.743-.106-.212-.953-2.292-1.306-3.139-.343-.824-.693-.712-.953-.724l-.812-.014c-.283 0-.743.106-1.13.53-.388.423-1.483 1.447-1.483 3.53s1.518 4.095 1.73 4.377c.212.283 2.987 4.56 7.242 6.393 1.012.436 1.8.696 2.415.891 1.014.322 1.937.277 2.666.168.814-.121 2.503-1.022 2.855-2.011.353-.989.353-1.836.247-2.011-.106-.176-.388-.283-.812-.495z"/>
   </svg>
 </button>
 
-<!-- WHATSAPP LEAD MODAL -->
-<div id="waModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(74,36,48,0.45);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
-  <div style="background:#fffafb;border-radius:24px;padding:32px 28px 28px;width:min(420px,calc(100% - 32px));box-shadow:0 24px 60px rgba(111,33,54,0.18);position:relative;">
-    <button onclick="closeWAModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;color:#9f6b76;cursor:pointer;line-height:1;">×</button>
-    <!-- ES -->
-    <div class="lang-es">
-      <p style="font-size:0.78rem;letter-spacing:0.25em;text-transform:uppercase;color:#b26073;margin-bottom:6px;">WhatsApp</p>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:#6f2136;margin-bottom:6px;line-height:1.1;">Hablemos por WhatsApp</h3>
-      <p style="color:#7d5a63;font-size:0.9rem;margin-bottom:20px;line-height:1.6;">Déjame tu nombre y teléfono y te contacto de inmediato.</p>
-    </div>
-    <!-- EN -->
-    <div class="lang-en lang-hidden">
-      <p style="font-size:0.78rem;letter-spacing:0.25em;text-transform:uppercase;color:#b26073;margin-bottom:6px;">WhatsApp</p>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:#6f2136;margin-bottom:6px;line-height:1.1;">Let's chat on WhatsApp</h3>
-      <p style="color:#7d5a63;font-size:0.9rem;margin-bottom:20px;line-height:1.6;">Leave your name and phone number and I'll reach out right away.</p>
-    </div>
+<div id="waModal" class="wa-modal">
+  <div class="wa-modal-box">
+    <button onclick="closeWAModal()" class="wa-modal-close">&times;</button>
+    <p class="wa-modal-label">WhatsApp</p>
+    <h3 class="wa-modal-title">Let's chat on WhatsApp</h3>
+    <p class="wa-modal-desc">Leave your name and phone number and I'll reach out right away.</p>
     <form id="waForm" onsubmit="submitWAForm(event)">
-      <div style="margin-bottom:14px;">
-        <input id="waName" type="text" required placeholder="" style="width:100%;padding:12px 14px;border:1px solid #e7cfd4;border-radius:12px;font-size:0.95rem;color:#4a2430;background:#fff8f9;outline:none;box-sizing:border-box;">
-        <span class="lang-es" style="display:block;font-size:0.78rem;color:#9f6b76;margin-top:4px;">Nombre completo</span>
-        <span class="lang-en lang-hidden" style="display:block;font-size:0.78rem;color:#9f6b76;margin-top:4px;">Full name</span>
+      <div class="wa-field">
+        <input id="waName" type="text" required>
+        <span class="wa-field-hint">Full name</span>
       </div>
-      <div style="margin-bottom:20px;">
-        <input id="waPhone" type="tel" required placeholder="" style="width:100%;padding:12px 14px;border:1px solid #e7cfd4;border-radius:12px;font-size:0.95rem;color:#4a2430;background:#fff8f9;outline:none;box-sizing:border-box;">
-        <span class="lang-es" style="display:block;font-size:0.78rem;color:#9f6b76;margin-top:4px;">Teléfono / WhatsApp</span>
-        <span class="lang-en lang-hidden" style="display:block;font-size:0.78rem;color:#9f6b76;margin-top:4px;">Phone / WhatsApp</span>
+      <div class="wa-field">
+        <input id="waPhone" type="tel" required>
+        <span class="wa-field-hint">Phone / WhatsApp</span>
       </div>
-      <button id="waSubmitBtn" type="submit" style="width:100%;padding:13px;background:linear-gradient(135deg,#25D366,#1ebe5d);color:white;border:none;border-radius:12px;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <button id="waSubmitBtn" type="submit" class="wa-submit">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="18" height="18"><path fill="white" d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.885.754 5.593 2.066 7.942L0 32l7.863-2.063A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.21c-2.593 0-5.022-.675-7.133-1.854l-.51-.303-4.664 1.224 1.244-4.548-.332-.527A13.92 13.92 0 0 1 2.08 16.396C2.08 8.87 8.474 2.476 16 2.476c7.526 0 13.92 6.394 13.92 13.92 0 7.526-6.394 13.92-13.92 13.92zm7.743-10.41c-.423-.212-2.503-1.235-2.89-1.377-.388-.141-.67-.212-.953.212-.283.423-1.094 1.377-1.342 1.66-.247.283-.495.318-.918.106-.423-.212-1.788-.66-3.406-2.104-1.258-1.122-2.108-2.506-2.356-2.929-.247-.423-.026-.651.186-.863.19-.19.423-.495.635-.743.212-.247.283-.423.423-.706.141-.283.071-.53-.035-.743-.106-.212-.953-2.292-1.306-3.139-.343-.824-.693-.712-.953-.724l-.812-.014c-.283 0-.743.106-1.13.53-.388.423-1.483 1.447-1.483 3.53s1.518 4.095 1.73 4.377c.212.283 2.987 4.56 7.242 6.393 1.012.436 1.8.696 2.415.891 1.014.322 1.937.277 2.666.168.814-.121 2.503-1.022 2.855-2.011.353-.989.353-1.836.247-2.011-.106-.176-.388-.283-.812-.495z"/></svg>
-        <span class="lang-es">Abrir WhatsApp</span>
-        <span class="lang-en lang-hidden">Open WhatsApp</span>
+        Open WhatsApp
       </button>
     </form>
-  </div>
-</div>
-
-<!-- ASK AI CHAT PANEL -->
-<div class="ask-ai-chat" id="chatBox">
-  <div class="chat-header">
-    Gloria AI Assistant 🤖
-    <span onclick="toggleChat()" style="cursor:pointer;">✕</span>
-  </div>
-
-  <div class="chat-body" id="chatBody">
-    <div class="bot">
-      Hi! I’m Gloria’s Digital Solutions Assistant 👋<br><br>
-      I help service businesses organize bookings, automate follow-ups and create a more professional client experience.<br><br>
-      What type of business do you run?
-    </div>
-  </div>
-
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Ask me anything..." onkeydown="if(event.key === 'Enter') sendMessage();" />
-    <button onclick="sendMessage()">Send</button>
   </div>
 </div>
 
 <script>
   setTimeout(function () {
     const whatsappButton = document.querySelector('.whatsapp-float');
-    if (whatsappButton) {
-      whatsappButton.classList.add('show');
-    }
+    if (whatsappButton) whatsappButton.classList.add('show');
   }, 5000);
 
-  function toggleChat() {
-    const chat = document.getElementById('chatBox');
-    if (!chat) return;
-    chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
-  }
-
-  function sendMessage() {
-    const input = document.getElementById('userInput');
-    const chatBody = document.getElementById('chatBody');
-    if (!input || !chatBody) return;
-
-    const userText = input.value.trim();
-    if (!userText) return;
-
-    chatBody.innerHTML += `<div class="user">${escapeHtml(userText)}</div>`;
-
-    const text = userText.toLowerCase();
-    let response = '';
-
-    if (/\b(hello|hi|hola|hey)\b/i.test(text)) {
-      response = 'Hi! I’m Gloria’s Digital Solutions Assistant 👋<br><br>I can help you understand the booking system, pricing, demo options, and what type of business can use it.<br><br>What type of business do you run?';
-    } else if (text.includes('price') || text.includes('pricing') || text.includes('cost') || text.includes('how much')) {
-      response = 'Here are the current setup options:<br><br><strong>Basic Setup:</strong> $120 CAD<br><strong>Advanced Setup:</strong> $180 CAD<br><strong>Monthly Support:</strong> $50 CAD/month<br><br><a href="#pricing">View Pricing Plans</a>';
-    } else if (text.includes('demo') || text.includes('appointment') || text.includes('book')) {
-      response = 'You can view the live demo here:<br><a href="https://appointsuite.tech/book/demo-beauty-salon/" target="_blank" rel="noopener">View Live Demo</a><br><br>Or request a private demo here:<br><a href="/demo.html">Start My Booking System</a>';
-    } else if (text.includes('salon') || text.includes('barber') || text.includes('spa') || text.includes('beauty')) {
-      response = 'Beauty and wellness businesses benefit from online booking, reminders, client history and follow-up. Are you currently managing appointments through messages or do you use a system?';
-    } else if (text.includes('tailor') || text.includes('sewing') || text.includes('alteration') || text.includes('dress')) {
-      response = 'Tailoring and alterations businesses can use the system to organize fittings, pickup times, client details and appointment reminders.';
-    } else {
-      response = 'This system is ideal for salons, barbershops, tailoring businesses, wellness brands, personal trainers, clinics, mechanics, repair services and any business that works by appointment.<br><br><a href="/demo.html">Request a Private Demo</a>';
-    }
-
-    chatBody.innerHTML += `<div class="bot">${response}</div>`;
-    chatBody.scrollTop = chatBody.scrollHeight;
-    input.value = '';
-  }
-
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-</script>
-
-<script>
   function openWAModal() {
-    const modal = document.getElementById('waModal');
-    modal.style.display = 'flex';
+    document.getElementById('waModal').classList.add('open');
     document.getElementById('waName').focus();
   }
-
   function closeWAModal() {
-    document.getElementById('waModal').style.display = 'none';
+    document.getElementById('waModal').classList.remove('open');
     document.getElementById('waForm').reset();
     const btn = document.getElementById('waSubmitBtn');
     btn.disabled = false;
     btn.style.opacity = '1';
   }
-
   document.getElementById('waModal').addEventListener('click', function(e) {
     if (e.target === this) closeWAModal();
   });
-
   async function submitWAForm(e) {
     e.preventDefault();
-    const name  = document.getElementById('waName').value.trim();
+    const name = document.getElementById('waName').value.trim();
     const phone = document.getElementById('waPhone').value.trim();
-    const lang  = document.documentElement.lang || 'en';
-    const btn   = document.getElementById('waSubmitBtn');
-
+    const btn = document.getElementById('waSubmitBtn');
     btn.disabled = true;
     btn.style.opacity = '0.7';
-
     try {
       await fetch('https://appointsuite.tech/api/demo-request/', {
         method: 'POST',
@@ -1183,16 +364,12 @@
           name: name,
           phone: phone,
           business_name: 'WhatsApp Lead',
-          message: 'Lead desde botón de WhatsApp — ' + name + ' / ' + phone,
+          message: 'Lead from WhatsApp button — ' + name + ' / ' + phone,
           source: 'whatsapp_button'
         })
       });
     } catch(_) {}
-
-    const msg = lang === 'es'
-      ? encodeURIComponent('Hola Gloria, soy ' + name + ' y mi número es ' + phone + '. Quiero saber más sobre AppointSuite.')
-      : encodeURIComponent('Hello Gloria, I\'m ' + name + ' and my number is ' + phone + '. I\'d like to know more about AppointSuite.');
-
+    const msg = encodeURIComponent('Hello Gloria, I\'m ' + name + ' and my number is ' + phone + '. I\'d like to know more about AppointSuite.');
     closeWAModal();
     window.open('https://wa.me/14376779018?text=' + msg, '_blank');
   }
